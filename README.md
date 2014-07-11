@@ -14,7 +14,7 @@ While there is not yet a stable release, the current version in beta testing is:
 <dependency>
   <groupId>com.metamx</groupId>
   <artifactId>rad-tech-datatypes</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
 </dependency>
 ```
 ## Usage
