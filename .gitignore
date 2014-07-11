@@ -1,0 +1,11 @@
+*.ipr
+*.iws
+*.iml
+target
+dist
+*.jar
+*.tar
+*.zip
+*.iml
+*.ipr
+.idea
