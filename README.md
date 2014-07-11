@@ -27,7 +27,7 @@ final ObjectMapper objectMapper = new ObjectMapper();
 ```
 
 ### Serialization
-The MMX Auction Summary record consists of an OpenRTB bid request with bids nested in a 'bid_reponses' objects and additional parameters for denoting information about the auction.  
+The MMX Auction Summary record consists of an OpenRTB bid request with an array of nested OpenRTB bid responses. Additional parameters for denoting information about the auction and bids have been added where applicable.  
 ```java
 // Build the Auction Summary record
 final MmxAuctionSummary auctionSummary = MmxAuctionSummary
