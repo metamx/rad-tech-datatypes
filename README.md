@@ -1,4 +1,4 @@
-# Metamarkets RadAdTech Datatypes
+# Metamarkets RadTech Datatypes
 
 Rad-Tech-Datatypes is a Java library built to assist in the serialization & validation of JSON event records designed for the reporting use cases of programmatic media markets.
 
