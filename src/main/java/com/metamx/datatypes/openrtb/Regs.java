@@ -23,33 +23,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class Pmp
+public class Regs
 {
-  private final Integer privateAuction;
-  private final Deals deals;
+  private final Integer coppa;
   private final Ext ext;
 
-  public Pmp(
-      @JsonProperty("private_auction") Integer privateAuction,
-      @JsonProperty("deals") Deals deals,
+  public Regs(
+      @JsonProperty("coppa") Integer coppa,
       @JsonProperty("ext") Ext ext
   )
   {
-    this.privateAuction = privateAuction;
-    this.deals = deals;
+    this.coppa = coppa;
     this.ext = ext;
   }
 
-  @JsonProperty("private_auction")
-  public Integer getPrivateAuction()
-  {
-    return privateAuction;
-  }
-
   @JsonProperty
-  public Deals getDeals()
+  public Integer getCoppa()
   {
-    return deals;
+    return coppa;
   }
 
   @JsonProperty
@@ -65,21 +56,14 @@ public class Pmp
 
   public static class Builder
   {
-    private Integer privateAuction;
-    private Deals deals;
+    private Integer coppa;
     private Ext ext;
 
     public Builder() {}
 
-    public Builder privateAuction(final Integer privateAuction)
+    public Builder coppa(final Integer coppa)
     {
-      this.privateAuction = privateAuction;
-      return this;
-    }
-
-    public Builder deals(final Deals deals)
-    {
-      this.deals = deals;
+      this.coppa = coppa;
       return this;
     }
 
@@ -89,9 +73,9 @@ public class Pmp
       return this;
     }
 
-    public Pmp build()
+    public Regs build()
     {
-      return new Pmp(privateAuction, deals, ext);
+      return new Regs(coppa, ext);
     }
   }
 }

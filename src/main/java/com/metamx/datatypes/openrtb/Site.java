@@ -29,7 +29,15 @@ public class Site
   private final String name;
   private final String domain;
   private final List<String> cat;
+  private final List<String> sectionCat;
+  private final List<String> pageCat;
+  private final String page;
+  private final Integer privacyPolicy;
+  private final String ref;
+  private final String search;
   private final Publisher publisher;
+  private final Content content;
+  private final String keywords;
   private final Ext ext;
 
   public Site(
@@ -37,7 +45,15 @@ public class Site
       @JsonProperty("name") String name,
       @JsonProperty("domain") String domain,
       @JsonProperty("cat") List<String> cat,
+      @JsonProperty("sectionCat") List<String> sectionCat,
+      @JsonProperty("pageCat") List<String> pageCat,
+      @JsonProperty("page") String page,
+      @JsonProperty("privacyPolicy") Integer privacyPolicy,
+      @JsonProperty("ref") String ref,
+      @JsonProperty("search") String search,
       @JsonProperty("publisher") Publisher publisher,
+      @JsonProperty("content") Content content,
+      @JsonProperty("keywords") String keywords,
       @JsonProperty("ext") Ext ext
   )
   {
@@ -45,7 +61,15 @@ public class Site
     this.name = name;
     this.domain = domain;
     this.cat = cat;
+    this.sectionCat = sectionCat;
+    this.pageCat = pageCat;
+    this.page = page;
+    this.privacyPolicy = privacyPolicy;
+    this.ref = ref;
+    this.search = search;
     this.publisher = publisher;
+    this.content = content;
+    this.keywords = keywords;
     this.ext = ext;
   }
 
@@ -73,10 +97,58 @@ public class Site
     return cat;
   }
 
+  @JsonProperty("sectioncat")
+  public List<String> getSectionCat()
+  {
+    return sectionCat;
+  }
+
+  @JsonProperty("pagecat")
+  public List<String> getPageCat()
+  {
+    return pageCat;
+  }
+
+  @JsonProperty
+  public String getPage()
+  {
+    return page;
+  }
+
+  @JsonProperty("privacypolicy")
+  public Integer getPrivacyPolicy()
+  {
+    return privacyPolicy;
+  }
+
+  @JsonProperty
+  public String getRef()
+  {
+    return ref;
+  }
+
+  @JsonProperty
+  public String getSearch()
+  {
+    return search;
+  }
+
   @JsonProperty
   public Publisher getPublisher()
   {
     return publisher;
+  }
+
+  @JsonProperty
+  public Content getContent()
+  {
+    return content;
+  }
+
+  @JsonProperty
+  public String getKeywords()
+  {
+    return keywords;
   }
 
   @JsonProperty
@@ -96,7 +168,15 @@ public class Site
     private String name;
     private String domain;
     private List<String> cat;
+    private List<String> sectionCat;
+    private List<String> pageCat;
+    private String page;
+    private Integer privacyPolicy;
+    private String ref;
+    private String search;
     private Publisher publisher;
+    private Content content;
+    private String keywords;
     private Ext ext;
 
     public Builder() {}
@@ -125,9 +205,57 @@ public class Site
       return this;
     }
 
+    public Builder sectionCat(final List<String> sectionCat)
+    {
+      this.sectionCat = sectionCat;
+      return this;
+    }
+
+    public Builder pageCat(final List<String> pageCat)
+    {
+      this.pageCat = pageCat;
+      return this;
+    }
+
+    public Builder page(final String page)
+    {
+      this.page = page;
+      return this;
+    }
+
+    public Builder privacyPolicy(final Integer privacyPolicy)
+    {
+      this.privacyPolicy = privacyPolicy;
+      return this;
+    }
+
+    public Builder ref(final String ref)
+    {
+      this.ref = ref;
+      return this;
+    }
+
+    public Builder search(final String search)
+    {
+      this.search = search;
+      return this;
+    }
+
     public Builder publisher(final Publisher publisher)
     {
       this.publisher = publisher;
+      return this;
+    }
+
+    public Builder content(final Content content)
+    {
+      this.content = content;
+      return this;
+    }
+
+    public Builder keywords(final String keywords)
+    {
+      this.keywords = keywords;
       return this;
     }
 
@@ -139,7 +267,22 @@ public class Site
 
     public Site build()
     {
-      return new Site(id, name, domain, cat, publisher, ext);
+      return new Site(
+          id,
+          name,
+          domain,
+          cat,
+          sectionCat,
+          pageCat,
+          page,
+          privacyPolicy,
+          ref,
+          search,
+          publisher,
+          content,
+          keywords,
+          ext
+      );
     }
   }
 }

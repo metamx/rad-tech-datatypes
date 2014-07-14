@@ -23,73 +23,40 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Geo
 {
-  private final String city;
-  private final String country;
-  private final String region;
-  private final String zip;
-  private final String metro;
-  private final Integer type;
   private final Double lat;
   private final Double lon;
+  private final String country;
+  private final String region;
+  private final String regionfips104;
+  private final String metro;
+  private final String city;
+  private final String zip;
+  private final Integer type;
   private final Ext ext;
 
   public Geo(
-      @JsonProperty("city") String city,
-      @JsonProperty("country") String country,
-      @JsonProperty("region") String region,
-      @JsonProperty("zip") String zip,
-      @JsonProperty("metro") String metro,
-      @JsonProperty("type") Integer type,
       @JsonProperty("lat") Double lat,
       @JsonProperty("lon") Double lon,
+      @JsonProperty("country") String country,
+      @JsonProperty("region") String region,
+      @JsonProperty("regionfips104") String regionfips104,
+      @JsonProperty("metro") String metro,
+      @JsonProperty("city") String city,
+      @JsonProperty("zip") String zip,
+      @JsonProperty("type") Integer type,
       @JsonProperty("ext") Ext ext
   )
   {
-    this.city = city;
-    this.country = country;
-    this.region = region;
-    this.zip = zip;
-    this.metro = metro;
-    this.type = type;
     this.lat = lat;
     this.lon = lon;
+    this.country = country;
+    this.region = region;
+    this.regionfips104 = regionfips104;
+    this.metro = metro;
+    this.city = city;
+    this.zip = zip;
+    this.type = type;
     this.ext = ext;
-  }
-
-  @JsonProperty
-  public String getCity()
-  {
-    return city;
-  }
-
-  @JsonProperty
-  public String getCountry()
-  {
-    return country;
-  }
-
-  @JsonProperty
-  public String getRegion()
-  {
-    return region;
-  }
-
-  @JsonProperty
-  public String getZip()
-  {
-    return zip;
-  }
-
-  @JsonProperty
-  public String getMetro()
-  {
-    return metro;
-  }
-
-  @JsonProperty
-  public Integer getType()
-  {
-    return type;
   }
 
   @JsonProperty
@@ -105,6 +72,48 @@ public class Geo
   }
 
   @JsonProperty
+  public String getCountry()
+  {
+    return country;
+  }
+
+  @JsonProperty
+  public String getRegion()
+  {
+    return region;
+  }
+
+  @JsonProperty
+  public String getRegionfips104()
+  {
+    return regionfips104;
+  }
+
+  @JsonProperty
+  public String getMetro()
+  {
+    return metro;
+  }
+
+  @JsonProperty
+  public String getCity()
+  {
+    return city;
+  }
+
+  @JsonProperty
+  public String getZip()
+  {
+    return zip;
+  }
+
+  @JsonProperty
+  public Integer getType()
+  {
+    return type;
+  }
+
+  @JsonProperty
   public Ext getExt()
   {
     return ext;
@@ -117,21 +126,28 @@ public class Geo
 
   public static class Builder
   {
-    private String city;
-    private String country;
-    private String region;
-    private String zip;
-    private String metro;
-    private Integer type;
     private Double lat;
     private Double lon;
+    private String country;
+    private String region;
+    private String regionfips104;
+    private String metro;
+    private String city;
+    private String zip;
+    private Integer type;
     private Ext ext;
 
     public Builder() {}
 
-    public Builder city(final String city)
+    public Builder lat(final Double lat)
     {
-      this.city = city;
+      this.lat = lat;
+      return this;
+    }
+
+    public Builder lon(final Double lon)
+    {
+      this.lon = lon;
       return this;
     }
 
@@ -144,6 +160,18 @@ public class Geo
     public Builder region(final String region)
     {
       this.region = region;
+      return this;
+    }
+
+    public Builder regionfips104(final String regionfips104)
+    {
+      this.regionfips104 = regionfips104;
+      return this;
+    }
+
+    public Builder city(final String city)
+    {
+      this.city = city;
       return this;
     }
 
@@ -165,18 +193,6 @@ public class Geo
       return this;
     }
 
-    public Builder lat(final Double lat)
-    {
-      this.lat = lat;
-      return this;
-    }
-
-    public Builder lon(final Double lon)
-    {
-      this.lon = lon;
-      return this;
-    }
-
     public Builder ext(final Ext ext)
     {
       this.ext = ext;
@@ -185,7 +201,18 @@ public class Geo
 
     public Geo build()
     {
-      return new Geo(city, country, region, zip, metro, type, lat, lon, ext);
+      return new Geo(
+          lat,
+          lon,
+          country,
+          region,
+          regionfips104,
+          metro,
+          city,
+          zip,
+          type,
+          ext
+      );
     }
   }
 }

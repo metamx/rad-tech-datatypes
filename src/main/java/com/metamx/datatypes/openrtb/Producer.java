@@ -23,33 +23,50 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class Pmp
+public class Producer
 {
-  private final Integer privateAuction;
-  private final Deals deals;
+  private final String id;
+  private final String name;
+  private final List<String> cat;
+  private final String domain;
   private final Ext ext;
 
-  public Pmp(
-      @JsonProperty("private_auction") Integer privateAuction,
-      @JsonProperty("deals") Deals deals,
+  public Producer(
+      @JsonProperty("id") String id,
+      @JsonProperty("name") String name,
+      @JsonProperty("cat") List<String> cat,
+      @JsonProperty("domain") String domain,
       @JsonProperty("ext") Ext ext
   )
   {
-    this.privateAuction = privateAuction;
-    this.deals = deals;
+    this.id = id;
+    this.name = name;
+    this.cat = cat;
+    this.domain = domain;
     this.ext = ext;
   }
 
-  @JsonProperty("private_auction")
-  public Integer getPrivateAuction()
+  @JsonProperty
+  public String getId()
   {
-    return privateAuction;
+    return id;
   }
 
   @JsonProperty
-  public Deals getDeals()
+  public String getName()
   {
-    return deals;
+    return name;
+  }
+
+  @JsonProperty public List<String> getCat()
+  {
+    return cat;
+  }
+
+  @JsonProperty
+  public String getDomain()
+  {
+    return domain;
   }
 
   @JsonProperty
@@ -65,21 +82,35 @@ public class Pmp
 
   public static class Builder
   {
-    private Integer privateAuction;
-    private Deals deals;
+    private String id;
+    private String name;
+    private List<String> cat;
+    private String domain;
     private Ext ext;
 
     public Builder() {}
 
-    public Builder privateAuction(final Integer privateAuction)
+    public Builder id(final String id)
     {
-      this.privateAuction = privateAuction;
+      this.id = id;
       return this;
     }
 
-    public Builder deals(final Deals deals)
+    public Builder name(final String name)
     {
-      this.deals = deals;
+      this.name = name;
+      return this;
+    }
+
+    public Builder cat(final List<String> cat)
+    {
+      this.cat = cat;
+      return this;
+    }
+
+    public Builder domain(final String domain)
+    {
+      this.domain = domain;
       return this;
     }
 
@@ -89,9 +120,9 @@ public class Pmp
       return this;
     }
 
-    public Pmp build()
+    public Producer build()
     {
-      return new Pmp(privateAuction, deals, ext);
+      return new Producer(id, name, cat, domain, ext);
     }
   }
 }

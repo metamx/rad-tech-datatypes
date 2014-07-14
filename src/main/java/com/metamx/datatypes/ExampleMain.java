@@ -72,7 +72,7 @@ public class ExampleMain
         ).impressions(
             Arrays.asList(
                 Imp.builder().tagId("231").bidFloor(0.1).secure(0).banner(
-                    Banner.builder().height(320).width(50).pos(3).apiFrameworks(Arrays.asList(3, 4)).build()
+                    Banner.builder().height(320).width(50).pos(3).api(Arrays.asList(3, 4)).build()
                 ).displayManager("MyRenderer").displayManagerVer("v2").build()
             )
         ).device(

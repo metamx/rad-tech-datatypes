@@ -26,24 +26,33 @@ import java.util.List;
 public class User
 {
   private final String id;
+  private final String buyeruid;
   private final Integer yob;
   private final String gender;
+  private final String keywords;
+  private final String customData;
   private final Geo geo;
   private final List<Data> data;
   private final Ext ext;
 
   public User(
       @JsonProperty("id") String id,
+      @JsonProperty("buyeruid") String buyeruid,
       @JsonProperty("yob") Integer yob,
       @JsonProperty("gender") String gender,
+      @JsonProperty("keywords") String keywords,
+      @JsonProperty("customdata") String customData,
       @JsonProperty("geo") Geo geo,
       @JsonProperty("data") List<Data> data,
       @JsonProperty("ext") Ext ext
   )
   {
     this.id = id;
+    this.buyeruid = buyeruid;
     this.yob = yob;
     this.gender = gender;
+    this.keywords = keywords;
+    this.customData = customData;
     this.geo = geo;
     this.data = data;
     this.ext = ext;
@@ -56,6 +65,12 @@ public class User
   }
 
   @JsonProperty
+  public String getBuyeruid()
+  {
+    return buyeruid;
+  }
+
+  @JsonProperty
   public Integer getYob()
   {
     return yob;
@@ -65,6 +80,18 @@ public class User
   public String getGender()
   {
     return gender;
+  }
+
+  @JsonProperty
+  public String getKeywords()
+  {
+    return keywords;
+  }
+
+  @JsonProperty("customdata")
+  public String getCustomData()
+  {
+    return customData;
   }
 
   @JsonProperty
@@ -93,8 +120,11 @@ public class User
   public static class Builder
   {
     private String id;
+    private String buyeruid;
     private Integer yob;
     private String gender;
+    private String keywords;
+    private String customData;
     private Geo geo;
     private List<Data> data;
     private Ext ext;
@@ -107,6 +137,12 @@ public class User
       return this;
     }
 
+    public Builder buyeruid(final String buyeruid)
+    {
+      this.buyeruid = buyeruid;
+      return this;
+    }
+
     public Builder yob(final Integer yob)
     {
       this.yob = yob;
@@ -116,6 +152,18 @@ public class User
     public Builder gender(final String gender)
     {
       this.gender = gender;
+      return this;
+    }
+
+    public Builder keywords(final String keywords)
+    {
+      this.keywords = keywords;
+      return this;
+    }
+
+    public Builder customData(final String customData)
+    {
+      this.customData = customData;
       return this;
     }
 
@@ -139,7 +187,7 @@ public class User
 
     public User build()
     {
-      return new User(id, yob, gender, geo, data, ext);
+      return new User(id, buyeruid, yob, gender, keywords, customData, geo, data, ext);
     }
   }
 }

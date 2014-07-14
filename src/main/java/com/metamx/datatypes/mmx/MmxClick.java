@@ -15,41 +15,42 @@
  * limitations under the License.
  */
 
-package com.metamx.datatypes.openrtb;
+package com.metamx.datatypes.mmx;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.List;
+import com.metamx.datatypes.openrtb.Ext;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class Pmp
+public class MmxClick
 {
-  private final Integer privateAuction;
-  private final Deals deals;
+  private final String timestamp;
+  private final String requestId;
   private final Ext ext;
 
-  public Pmp(
-      @JsonProperty("private_auction") Integer privateAuction,
-      @JsonProperty("deals") Deals deals,
+  public MmxClick(
+      @JsonProperty("timestamp") String timestamp,
+      @JsonProperty("id") String requestId,
       @JsonProperty("ext") Ext ext
   )
   {
-    this.privateAuction = privateAuction;
-    this.deals = deals;
+    this.timestamp = timestamp;
+    this.requestId = requestId;
     this.ext = ext;
   }
 
-  @JsonProperty("private_auction")
-  public Integer getPrivateAuction()
+  @JsonProperty
+  public String getTimestamp()
   {
-    return privateAuction;
+    return timestamp;
   }
 
-  @JsonProperty
-  public Deals getDeals()
+  @JsonProperty("id")
+  public String getRequestId()
   {
-    return deals;
+    return requestId;
   }
 
   @JsonProperty
@@ -65,21 +66,21 @@ public class Pmp
 
   public static class Builder
   {
-    private Integer privateAuction;
-    private Deals deals;
+    private DateTime timestamp;
+    private String requestId;
     private Ext ext;
 
     public Builder() {}
 
-    public Builder privateAuction(final Integer privateAuction)
+    public Builder timestamp(final DateTime timestamp)
     {
-      this.privateAuction = privateAuction;
+      this.timestamp = timestamp;
       return this;
     }
 
-    public Builder deals(final Deals deals)
+    public Builder requestId(final String requestId)
     {
-      this.deals = deals;
+      this.requestId = requestId;
       return this;
     }
 
@@ -89,9 +90,9 @@ public class Pmp
       return this;
     }
 
-    public Pmp build()
+    public MmxClick build()
     {
-      return new Pmp(privateAuction, deals, ext);
+      return new MmxClick(timestamp.withZone(DateTimeZone.UTC).toString(), requestId, ext);
     }
   }
 }

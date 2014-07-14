@@ -29,6 +29,8 @@ public class Bid
   private final String impId;
   private final Double price;
   private final String adId;
+  private final String nurl;
+  private final String adm;
   private final List<String> adomain;
   private final String iUrl;
   private final String cId;
@@ -44,6 +46,8 @@ public class Bid
       @JsonProperty("impid") String impId,
       @JsonProperty("price") Double price,
       @JsonProperty("adid") String adId,
+      @JsonProperty("nurl") String nurl,
+      @JsonProperty("adm") String adm,
       @JsonProperty("adomain") List<String> adomain,
       @JsonProperty("iurl") String iUrl,
       @JsonProperty("cid") String cId,
@@ -59,6 +63,8 @@ public class Bid
     this.impId = impId;
     this.price = price;
     this.adId = adId;
+    this.nurl = nurl;
+    this.adm = adm;
     this.adomain = adomain;
     this.iUrl = iUrl;
     this.cId = cId;
@@ -92,6 +98,18 @@ public class Bid
   public String getAdId()
   {
     return adId;
+  }
+
+  @JsonProperty
+  public String getNurl()
+  {
+    return nurl;
+  }
+
+  @JsonProperty
+  public String getAdm()
+  {
+    return adm;
   }
 
   @JsonProperty
@@ -159,6 +177,8 @@ public class Bid
     private String impId;
     private Double price;
     private String adId;
+    private String nurl;
+    private String adm;
     private List<String> adomain;
     private String iUrl;
     private String cId;
@@ -192,6 +212,18 @@ public class Bid
     public Builder adId(final String adId)
     {
       this.adId = adId;
+      return this;
+    }
+
+    public Builder nurl(final String nurl)
+    {
+      this.nurl = nurl;
+      return this;
+    }
+
+    public Builder adm(final String adm)
+    {
+      this.adm = adm;
       return this;
     }
 
@@ -257,6 +289,8 @@ public class Bid
           impId,
           price,
           adId,
+          nurl,
+          adm,
           adomain,
           iUrl,
           cId,
