@@ -192,7 +192,7 @@ public class BidRequestTest
                                  .ext(sampleExt)
                                  .build();
 
-  final Pmp samplePmp = Pmp.builder().privateAuction(1).deals(sampleDeals).ext(sampleExt).build();
+  final Pmp samplePmp = Pmp.builder().privateAuction(1).deals(Arrays.asList(sampleDeals)).ext(sampleExt).build();
 
   final Regs sampleRegs = Regs.builder().coppa(1).ext(sampleExt).build();
 
@@ -236,11 +236,11 @@ public class BidRequestTest
   final BidRequest sampleBidRequest = BidRequest
       .builder()
       .requestId("AFEWSEBD5EB5FI32DASFCD452BB78DVE")
-      .impressions(Arrays.asList(sampleImp))
-      .site(sampleSite)
-      .app(sampleApp)
-      .device(sampleDevice)
-      .user(sampleUser)
+      .impressions(Arrays.asList(Imp.builder().id("1").build()))
+      .site(Site.builder().name("Unicornssay.com").build())
+      .app(App.builder().name("Unicornssay.com").build())
+      .device(Device.builder().carrier("Verizon").build())
+      .user(User.builder().id("456789876567897654678987656789").build())
       .auctionType(2)
       .tmax(200)
       .wseat(Arrays.asList("2", "22"))
@@ -248,7 +248,7 @@ public class BidRequestTest
       .cur(Arrays.asList("USD", "AUD"))
       .bcat(Arrays.asList("IAB26", "IAB25"))
       .badv(Arrays.asList("sampleadvertiser", "ihateunicorns.com"))
-      .regs(sampleRegs)
+      .regs(Regs.builder().coppa(1).build())
       .ext(sampleExt)
       .build();
 
@@ -270,12 +270,13 @@ public class BidRequestTest
   final String bannerJson = "{\"w\":50,\"h\":320,\"wmax\":50,\"hmax\":320,\"wmin\":10,\"hmin\":10,\"id\":\"ABC123\",\"pos\":3,\"btype\":[3,4],\"battr\":[8,9,10],\"mimes\":[\"image/jpg\",\"image/gif\"],\"topframe\":0,\"expdir\":[1,2,3,4,5],\"api\":[3,4],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
   final String videoJson = "{\"mimes\":[\"video/x-ms-wmv\"],\"minduration\":300,\"maxduration\":900,\"protocol\":3,\"protocols\":[1,2,3],\"w\":320,\"h\":50,\"startdelay\":10,\"linearity\":2,\"sequence\":1,\"battr\":[8,9,10],\"maxextended\":0,\"minbitrate\":200,\"maxbitrate\":1000,\"boxingallowed\":1,\"playbackmethod\":[1,2,3],\"delivery\":[1,8,9],\"pos\":1,\"companionad\":[{\"w\":50,\"h\":320,\"wmax\":50,\"hmax\":320,\"wmin\":10,\"hmin\":10,\"id\":\"ABC123\",\"pos\":3,\"btype\":[3,4],\"battr\":[8,9,10],\"mimes\":[\"image/jpg\",\"image/gif\"],\"topframe\":0,\"expdir\":[1,2,3,4,5],\"api\":[3,4],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}],\"api\":[1,3],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]},\"companionType\":[3,4]}";
   final String dealsJson = "{\"id\":\"deal-for-unicorns-1\",\"bidfloor\":0.1,\"bidfloorcur\":\"USD\",\"wseat\":[\"1\",\"2\"],\"wadomain\":[\"advertiser1.com\",\"advertiser2.com\"],\"at\":1,\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
-  final String pmpJson = "{\"private_auction\":1,\"deals\":{\"id\":\"deal-for-unicorns-1\",\"bidfloor\":0.1,\"bidfloorcur\":\"USD\",\"wseat\":[\"1\",\"2\"],\"wadomain\":[\"advertiser1.com\",\"advertiser2.com\"],\"at\":1,\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}},\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
+  final String pmpJson = "{\"private_auction\":1,\"deals\":[{\"id\":\"deal-for-unicorns-1\",\"bidfloor\":0.1,\"bidfloorcur\":\"USD\",\"wseat\":[\"1\",\"2\"],\"wadomain\":[\"advertiser1.com\",\"advertiser2.com\"],\"at\":1,\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
   final String regsJson = "{\"coppa\":1,\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
-  final String impJson = "{\"id\":\"1\",\"banner\":{\"w\":50,\"h\":320,\"wmax\":50,\"hmax\":320,\"wmin\":10,\"hmin\":10,\"id\":\"ABC123\",\"pos\":3,\"btype\":[3,4],\"battr\":[8,9,10],\"mimes\":[\"image/jpg\",\"image/gif\"],\"topframe\":0,\"expdir\":[1,2,3,4,5],\"api\":[3,4],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}},\"video\":{\"mimes\":[\"video/x-ms-wmv\"],\"minduration\":300,\"maxduration\":900,\"protocol\":3,\"protocols\":[1,2,3],\"w\":320,\"h\":50,\"startdelay\":10,\"linearity\":2,\"sequence\":1,\"battr\":[8,9,10],\"maxextended\":0,\"minbitrate\":200,\"maxbitrate\":1000,\"boxingallowed\":1,\"playbackmethod\":[1,2,3],\"delivery\":[1,8,9],\"pos\":1,\"companionad\":[{\"w\":50,\"h\":320,\"wmax\":50,\"hmax\":320,\"wmin\":10,\"hmin\":10,\"id\":\"ABC123\",\"pos\":3,\"btype\":[3,4],\"battr\":[8,9,10],\"mimes\":[\"image/jpg\",\"image/gif\"],\"topframe\":0,\"expdir\":[1,2,3,4,5],\"api\":[3,4],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}],\"api\":[1,3],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]},\"companionType\":[3,4]},\"displaymanager\":\"MyRenderer\",\"displaymanagerver\":\"v2\",\"instl\":0,\"tagid\":\"231\",\"bidfloor\":0.1,\"bidfloorcur\":\"USD\",\"secure\":0,\"iframebuster\":[\"buster1\",\"buster2\"],\"pmp\":{\"private_auction\":1,\"deals\":{\"id\":\"deal-for-unicorns-1\",\"bidfloor\":0.1,\"bidfloorcur\":\"USD\",\"wseat\":[\"1\",\"2\"],\"wadomain\":[\"advertiser1.com\",\"advertiser2.com\"],\"at\":1,\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}},\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}},\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
+  final String impJson = "{\"id\":\"1\",\"banner\":{\"w\":50,\"h\":320,\"wmax\":50,\"hmax\":320,\"wmin\":10,\"hmin\":10,\"id\":\"ABC123\",\"pos\":3,\"btype\":[3,4],\"battr\":[8,9,10],\"mimes\":[\"image/jpg\",\"image/gif\"],\"topframe\":0,\"expdir\":[1,2,3,4,5],\"api\":[3,4],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}},\"video\":{\"mimes\":[\"video/x-ms-wmv\"],\"minduration\":300,\"maxduration\":900,\"protocol\":3,\"protocols\":[1,2,3],\"w\":320,\"h\":50,\"startdelay\":10,\"linearity\":2,\"sequence\":1,\"battr\":[8,9,10],\"maxextended\":0,\"minbitrate\":200,\"maxbitrate\":1000,\"boxingallowed\":1,\"playbackmethod\":[1,2,3],\"delivery\":[1,8,9],\"pos\":1,\"companionad\":[{\"w\":50,\"h\":320,\"wmax\":50,\"hmax\":320,\"wmin\":10,\"hmin\":10,\"id\":\"ABC123\",\"pos\":3,\"btype\":[3,4],\"battr\":[8,9,10],\"mimes\":[\"image/jpg\",\"image/gif\"],\"topframe\":0,\"expdir\":[1,2,3,4,5],\"api\":[3,4],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}],\"api\":[1,3],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]},\"companionType\":[3,4]},\"displaymanager\":\"MyRenderer\",\"displaymanagerver\":\"v2\",\"instl\":0,\"tagid\":\"231\",\"bidfloor\":0.1,\"bidfloorcur\":\"USD\",\"secure\":0,\"iframebuster\":[\"buster1\",\"buster2\"],\"pmp\":{\"private_auction\":1,\"deals\":[{\"id\":\"deal-for-unicorns-1\",\"bidfloor\":0.1,\"bidfloorcur\":\"USD\",\"wseat\":[\"1\",\"2\"],\"wadomain\":[\"advertiser1.com\",\"advertiser2.com\"],\"at\":1,\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}},\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
   final String segmentJson = "{\"id\":\"abc1\",\"name\":\"gender\",\"value\":\"male\",\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
   final String dataJson = "{\"id\":\"123\",\"name\":\"bluesky\",\"segment\":[{\"id\":\"abc1\",\"name\":\"gender\",\"value\":\"male\",\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
   final String userJson = "{\"id\":\"456789876567897654678987656789\",\"buyeruid\":\"ABC123\",\"yob\":1987,\"gender\":\"M\",\"keywords\":\"kw1,kw2\",\"customdata\":\"Supervaluable\",\"geo\":{\"lat\":37.790148,\"lon\":-122.434103,\"country\":\"USA\",\"region\":\"CA\",\"regionfips104\":\"US\",\"metro\":\"807\",\"city\":\"US-SFO\",\"zip\":\"94107\",\"type\":1,\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}},\"data\":[{\"id\":\"123\",\"name\":\"bluesky\",\"segment\":[{\"id\":\"abc1\",\"name\":\"gender\",\"value\":\"male\",\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
+  final String bidRequestJson = "{\"id\":\"AFEWSEBD5EB5FI32DASFCD452BB78DVE\",\"imp\":[{\"id\":\"1\"}],\"site\":{\"name\":\"Unicornssay.com\"},\"app\":{\"name\":\"Unicornssay.com\"},\"device\":{\"carrier\":\"Verizon\"},\"user\":{\"id\":\"456789876567897654678987656789\"},\"at\":2,\"tmax\":200,\"wseat\":[\"2\",\"22\"],\"allimps\":0,\"cur\":[\"USD\",\"AUD\"],\"bcat\":[\"IAB26\",\"IAB25\"],\"badv\":[\"sampleadvertiser\",\"ihateunicorns.com\"],\"regs\":{\"coppa\":1},\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
 
   @Test
   public void testSerializationByObject() throws Exception
@@ -299,6 +300,7 @@ public class BidRequestTest
     Assert.assertEquals(segmentJson, objectMapper.writeValueAsString(sampleSegment));
     Assert.assertEquals(dataJson, objectMapper.writeValueAsString(sampleData));
     Assert.assertEquals(userJson, objectMapper.writeValueAsString(sampleUser));
+    Assert.assertEquals(bidRequestJson, objectMapper.writeValueAsString(sampleBidRequest));
   }
 
   @Test
@@ -390,6 +392,11 @@ public class BidRequestTest
         objectMapper.readValue(userJson, User.class)
     );
     Assert.assertEquals(userJson, roundTripUserJson);
+
+    final String roundTripBidRequestJson = objectMapper.writeValueAsString(
+        objectMapper.readValue(bidRequestJson, BidRequest.class)
+    );
+    Assert.assertEquals(bidRequestJson, roundTripBidRequestJson);
   }
 
 }
