@@ -26,12 +26,12 @@ import java.util.List;
 public class Pmp
 {
   private final Integer privateAuction;
-  private final Deals deals;
+  private final List<Deals> deals;
   private final Ext ext;
 
   public Pmp(
       @JsonProperty("private_auction") Integer privateAuction,
-      @JsonProperty("deals") Deals deals,
+      @JsonProperty("deals") List<Deals> deals,
       @JsonProperty("ext") Ext ext
   )
   {
@@ -47,7 +47,7 @@ public class Pmp
   }
 
   @JsonProperty
-  public Deals getDeals()
+  public List<Deals> getDeals()
   {
     return deals;
   }
@@ -66,7 +66,7 @@ public class Pmp
   public static class Builder
   {
     private Integer privateAuction;
-    private Deals deals;
+    private List<Deals> deals;
     private Ext ext;
 
     public Builder() {}
@@ -77,7 +77,7 @@ public class Pmp
       return this;
     }
 
-    public Builder deals(final Deals deals)
+    public Builder deals(final List<Deals> deals)
     {
       this.deals = deals;
       return this;
