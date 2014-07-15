@@ -28,18 +28,21 @@ public class Publisher
   private final String id;
   private final String name;
   private final List<String> cat;
+  private final String domain;
   private final Ext ext;
 
   public Publisher(
       @JsonProperty("id") String id,
       @JsonProperty("name") String name,
       @JsonProperty("cat") List<String> cat,
+      @JsonProperty("domain") String domain,
       @JsonProperty("ext") Ext ext
   )
   {
     this.id = id;
     this.name = name;
     this.cat = cat;
+    this.domain = domain;
     this.ext = ext;
   }
 
@@ -61,6 +64,12 @@ public class Publisher
   }
 
   @JsonProperty
+  public String getDomain()
+  {
+    return domain;
+  }
+
+  @JsonProperty
   public Ext getExt()
   {
     return ext;
@@ -76,6 +85,7 @@ public class Publisher
     private String id;
     private String name;
     private List<String> cat;
+    private String domain;
     private Ext ext;
 
     public Builder() {}
@@ -98,6 +108,12 @@ public class Publisher
       return this;
     }
 
+    public Builder domain(final String domain)
+    {
+      this.domain = domain;
+      return this;
+    }
+
     public Builder ext(final Ext ext)
     {
       this.ext = ext;
@@ -106,7 +122,7 @@ public class Publisher
 
     public Publisher build()
     {
-      return new Publisher(id, name, cat, ext);
+      return new Publisher(id, name, cat, domain, ext);
     }
   }
 }

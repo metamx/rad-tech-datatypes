@@ -27,16 +27,19 @@ public class SeatBid
 {
   private final String seat;
   private final List<Bid> bid;
+  private final Integer group;
   private final Ext ext;
 
   public SeatBid(
       @JsonProperty("seat") String seat,
       @JsonProperty("bid") List<Bid> bid,
+      @JsonProperty("group") Integer group,
       @JsonProperty("ext") Ext ext
   )
   {
     this.seat = seat;
     this.bid = bid;
+    this.group = group;
     this.ext = ext;
   }
 
@@ -50,6 +53,12 @@ public class SeatBid
   public List<Bid> getBid()
   {
     return bid;
+  }
+
+  @JsonProperty
+  public Integer getGroup()
+  {
+    return group;
   }
 
   @JsonProperty
@@ -67,6 +76,7 @@ public class SeatBid
   {
     private String seat;
     private List<Bid> bid;
+    private Integer group;
     private Ext ext;
 
     public Builder() {}
@@ -83,6 +93,12 @@ public class SeatBid
       return this;
     }
 
+    public Builder group(final Integer group)
+    {
+      this.group = group;
+      return this;
+    }
+
     public Builder ext(final Ext ext)
     {
       this.ext = ext;
@@ -91,7 +107,7 @@ public class SeatBid
 
     public SeatBid build()
     {
-      return new SeatBid(seat, bid, ext);
+      return new SeatBid(seat, bid, group, ext);
     }
   }
 }

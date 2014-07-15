@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.metamx.datatypes;
+package com.metamx.datatypes.mmx;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

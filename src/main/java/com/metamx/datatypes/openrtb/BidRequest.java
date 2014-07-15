@@ -41,6 +41,7 @@ public class BidRequest
   private final List<String> cur;
   private final List<String> bcat;
   private final List<String> badv;
+  private final Regs regs;
   private final Ext ext;
 
   public BidRequest(
@@ -57,6 +58,7 @@ public class BidRequest
       @JsonProperty("cur") List<String> cur,
       @JsonProperty("bcat") List<String> bcat,
       @JsonProperty("badv") List<String> badv,
+      @JsonProperty("regs") Regs regs,
       @JsonProperty("ext") Ext ext
   )
   {
@@ -73,6 +75,7 @@ public class BidRequest
     this.cur = cur;
     this.bcat = bcat;
     this.badv = badv;
+    this.regs = regs;
     this.ext = ext;
   }
 
@@ -155,6 +158,12 @@ public class BidRequest
   }
 
   @JsonProperty
+  public Regs getRegs()
+  {
+    return regs;
+  }
+
+  @JsonProperty
   public Ext getExt()
   {
     return ext;
@@ -180,6 +189,7 @@ public class BidRequest
     private List<String> cur;
     private List<String> bcat;
     private List<String> badv;
+    private Regs regs;
     private Ext ext;
 
     public Builder() {}
@@ -262,6 +272,12 @@ public class BidRequest
       return this;
     }
 
+    public Builder regs(final Regs regs)
+    {
+      this.regs = regs;
+      return this;
+    }
+
     public Builder ext(final Ext ext)
     {
       this.ext = ext;
@@ -284,6 +300,7 @@ public class BidRequest
           cur,
           bcat,
           badv,
+          regs,
           ext
       );
     }

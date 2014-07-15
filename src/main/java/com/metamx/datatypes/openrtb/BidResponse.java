@@ -26,25 +26,28 @@ import java.util.List;
 public class BidResponse
 {
   private final String id;
-  private final String bidid;
-  private final String cur;
   private final List<SeatBid> seatBid;
+  private final String bidId;
+  private final String cur;
+  private final String customData;
   private final Integer nbr;
   private final Ext ext;
 
   public BidResponse(
       @JsonProperty("id") String id,
-      @JsonProperty("bidid") String bidid,
-      @JsonProperty("cur") String cur,
       @JsonProperty("seatbid") List<SeatBid> seatBid,
+      @JsonProperty("bidid") String bidId,
+      @JsonProperty("cur") String cur,
+      @JsonProperty("customdata") String customData,
       @JsonProperty("nbr") Integer nbr,
       @JsonProperty("ext") Ext ext
   )
   {
     this.id = id;
-    this.bidid = bidid;
-    this.cur = cur;
     this.seatBid = seatBid;
+    this.bidId = bidId;
+    this.cur = cur;
+    this.customData = customData;
     this.nbr = nbr;
     this.ext = ext;
   }
@@ -55,16 +58,16 @@ public class BidResponse
     return id;
   }
 
-  @JsonProperty
-  public String getBidid()
+  @JsonProperty("seatbid")
+  public List<SeatBid> getSeatBid()
   {
-    return bidid;
+    return seatBid;
   }
 
-  @JsonProperty
-  public Integer getNbr()
+  @JsonProperty("bidid")
+  public String getBidId()
   {
-    return nbr;
+    return bidId;
   }
 
   @JsonProperty
@@ -73,10 +76,16 @@ public class BidResponse
     return cur;
   }
 
-  @JsonProperty("seatbid")
-  public List<SeatBid> getSeatBid()
+  @JsonProperty("customdata")
+  public String getCustomData()
   {
-    return seatBid;
+    return customData;
+  }
+
+  @JsonProperty
+  public Integer getNbr()
+  {
+    return nbr;
   }
 
   @JsonProperty
@@ -93,9 +102,10 @@ public class BidResponse
   public static class Builder
   {
     private String id;
-    private String bidid;
-    private String cur;
     private List<SeatBid> seatBid;
+    private String bidId;
+    private String cur;
+    private String customData;
     private Integer nbr;
     private Ext ext;
 
@@ -107,9 +117,15 @@ public class BidResponse
       return this;
     }
 
-    public Builder bidid(final String bidid)
+    public Builder seatBid(final List<SeatBid> seatBid)
     {
-      this.bidid = bidid;
+      this.seatBid = seatBid;
+      return this;
+    }
+
+    public Builder bidId(final String bidId)
+    {
+      this.bidId = bidId;
       return this;
     }
 
@@ -119,9 +135,9 @@ public class BidResponse
       return this;
     }
 
-    public Builder seatBid(final List<SeatBid> seatBid)
+    public Builder customData(final String customData)
     {
-      this.seatBid = seatBid;
+      this.customData = customData;
       return this;
     }
 
@@ -141,9 +157,10 @@ public class BidResponse
     {
       return new BidResponse(
           id,
-          bidid,
-          cur,
           seatBid,
+          bidId,
+          cur,
+          customData,
           nbr,
           ext
       );
