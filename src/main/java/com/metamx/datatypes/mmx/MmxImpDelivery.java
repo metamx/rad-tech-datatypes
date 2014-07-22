@@ -20,6 +20,7 @@ package com.metamx.datatypes.mmx;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.metamx.datatypes.openrtb.Ext;
+import com.metamx.datatypes.openrtb.Pmp;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 
@@ -32,6 +33,7 @@ public class MmxImpDelivery
   private final String requestId;
   private final Double chargePrice;
   private final Double pubRevenue;
+  private final Pmp pmp;
   private final Ext ext;
 
   public MmxImpDelivery(
@@ -39,13 +41,16 @@ public class MmxImpDelivery
       @JsonProperty("id") String requestId,
       @JsonProperty("charge_price") Double chargePrice,
       @JsonProperty("pub_revenue") Double pubRevenue,
+      @JsonProperty("pmp") Pmp pmp,
       @JsonProperty("ext") Ext ext
+
   )
   {
     this.timestamp = timestamp;
     this.requestId = requestId;
     this.chargePrice = chargePrice;
     this.pubRevenue = pubRevenue;
+    this.pmp = pmp;
     this.ext = ext;
   }
 
@@ -74,6 +79,9 @@ public class MmxImpDelivery
   }
 
   @JsonProperty
+  public Pmp getPmp() { return pmp; }
+
+  @JsonProperty
   public Ext getExt()
   {
     return ext;
@@ -90,6 +98,7 @@ public class MmxImpDelivery
     private String requestId;
     private Double chargePrice;
     private Double pubRevenue;
+    private Pmp pmp;
     private Ext ext;
 
     public Builder() {}
@@ -118,6 +127,12 @@ public class MmxImpDelivery
       return this;
     }
 
+    public Builder pmp(final Pmp pmp)
+    {
+      this.pmp = pmp;
+      return this;
+    }
+
     public Builder ext(final Ext ext)
     {
       this.ext = ext;
@@ -131,6 +146,7 @@ public class MmxImpDelivery
           requestId,
           chargePrice,
           pubRevenue,
+          pmp,
           ext
       );
     }
