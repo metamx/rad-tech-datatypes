@@ -227,6 +227,9 @@ public class MmxAuctionSummary
 
     public MmxAuctionSummary build()
     {
+      if (timestamp == null) {
+        throw new NullPointerException("null timestamp");
+      }
       return new MmxAuctionSummary(
           timestamp.withZone(DateTimeZone.UTC).toString(),
           requestId,
