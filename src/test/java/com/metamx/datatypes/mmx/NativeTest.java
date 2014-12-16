@@ -47,7 +47,6 @@ public class NativeTest
               Imp.builder().tagId("231").nativeObj(
                   Native.builder()
                         .request("String complying w/ Native Spec.")
-                        .ver("1")
                         .api(Arrays.asList(1, 2, 3))
                         .battr(Arrays.asList(2, 43, 2))
                         .ext(Ext.builder().put("testDouble", 2.2).build())

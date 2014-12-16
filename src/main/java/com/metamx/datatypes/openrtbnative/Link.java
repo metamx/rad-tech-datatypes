@@ -15,59 +15,51 @@
  * limitations under the License.
  */
 
-package com.metamx.datatypes.openrtb;
+package com.metamx.datatypes.openrtbnative;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.metamx.datatypes.openrtb.Ext;
 
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class Native
+public class Link
 {
-  private final String request;
-  private final String ver;
-  private final List<Integer> api;
-  private final List<Integer> battr;
+  private final String url;
+  private final List<String> clktrck;
+  private final String fallback;
   private final Ext ext;
 
-  public Native(
-      @JsonProperty("request") String request,
-      @JsonProperty("ver") String ver,
-      @JsonProperty("api") List<Integer> api,
-      @JsonProperty("battr") List<Integer> battr,
+  public Link(
+      @JsonProperty("url") String url,
+      @JsonProperty("clktrck[]") List<String> clktrck,
+      @JsonProperty("fallback") String fallback,
       @JsonProperty("ext") Ext ext
   )
   {
-    this.request = request;
-    this.ver = ver;
-    this.api = api;
-    this.battr = battr;
+    this.url = url;
+    this.clktrck = clktrck;
+    this.fallback = fallback;
     this.ext = ext;
   }
 
   @JsonProperty
-  public String getRequest()
+  public String getUrl()
   {
-    return request;
+    return url;
+  }
+
+  @JsonProperty("clktrck[]")
+  public List<String> getClktrck()
+  {
+    return clktrck;
   }
 
   @JsonProperty
-  public String getVer()
+  public String getFallback()
   {
-    return ver;
-  }
-
-  @JsonProperty
-  public List<Integer> getApi()
-  {
-    return api;
-  }
-
-  @JsonProperty
-  public List<Integer> getBattr()
-  {
-    return battr;
+    return fallback;
   }
 
   @JsonProperty
@@ -83,35 +75,28 @@ public class Native
 
   public static class Builder
   {
-    private String request;
-    private String ver = "1";
-    private List<Integer> api;
-    private List<Integer> battr;
+    private String url;
+    private List<String> clktrck;
+    private String fallback;
     private Ext ext;
 
     public Builder() {}
 
-    public Builder request(final String request)
+    public Builder url(final String url)
     {
-      this.request = request;
+      this.url = url;
       return this;
     }
 
-    public Builder ver(final String ver)
+    public Builder clktrck(final List<String> clktrck)
     {
-      this.ver = ver;
+      this.clktrck = clktrck;
       return this;
     }
 
-    public Builder api(final List<Integer> api)
+    public Builder fallback(final String fallback)
     {
-      this.api = api;
-      return this;
-    }
-
-    public Builder battr(final List<Integer> battr)
-    {
-      this.battr = battr;
+      this.fallback = fallback;
       return this;
     }
 
@@ -121,16 +106,14 @@ public class Native
       return this;
     }
 
-    public Native build()
+    public Link build()
     {
-      return new Native(
-          request,
-          ver,
-          api,
-          battr,
+      return new Link(
+          url,
+          clktrck,
+          fallback,
           ext
       );
     }
   }
-
 }

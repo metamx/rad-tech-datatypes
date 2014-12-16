@@ -15,23 +15,26 @@
  * limitations under the License.
  */
 
-package com.metamx.datatypes.openrtb;
+package com.metamx.datatypes.openrtbnative;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.metamx.datatypes.openrtb.Ext;
 
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class Native
+public class NativeRequest
 {
-  private final String request;
   private final String ver;
-  private final List<Integer> api;
-  private final List<Integer> battr;
+  private final int layout;
+  private final int adunit;
+  private final int plcmtcnt;
+  private final int seq;
+  private final List<AssetObj> assets;
   private final Ext ext;
 
-  public Native(
+  public NativeRequest(
       @JsonProperty("request") String request,
       @JsonProperty("ver") String ver,
       @JsonProperty("api") List<Integer> api,
@@ -121,9 +124,9 @@ public class Native
       return this;
     }
 
-    public Native build()
+    public NativeRequest build()
     {
-      return new Native(
+      return new NativeRequest(
           request,
           ver,
           api,
