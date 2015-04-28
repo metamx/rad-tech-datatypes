@@ -47,6 +47,7 @@ public class AuctionSummaryTest
       .timestamp(new DateTime("2014-01-01T00:00:00.000Z"))
       .auctionType(2)
       .bcat(Arrays.asList("IAB26", "IAB25"))
+      .badv(Arrays.asList("unicornsay.com","unicornssay.com"))
       .requestId("AFEWSEBD5EB5FI32DASFCD452BB78DVE")
       .ext(
           Ext.builder().put("custFlag",3).put("custStr","Unicorns are the best!").build()
@@ -162,6 +163,7 @@ public class AuctionSummaryTest
                             + "\"id\":\"AFEWSEBD5EB5FI32DASFCD452BB78DVE\","
                             + "\"at\":2,"
                             + "\"bcat\":[\"IAB26\",\"IAB25\"],"
+                            + "\"badv\":[\"unicornsay.com\",\"unicornssay.com\"],"
                             + "\"imp\":[{\"banner\":{\"w\":50,\"h\":320,\"pos\":3,\"api\":[3,4]},\"displaymanager\":\"MyRenderer\",\"displaymanagerver\":\"v2\",\"tagid\":\"231\",\"bidfloor\":0.1,\"secure\":0}],"
                             + "\"app\":{\"id\":\"12312312\",\"name\":\"Unicornssay\",\"domain\":\"unicornssay.com\",\"cat\":[\"IAB1\"],\"bundle\":\"bundlename\",\"publisher\":{\"id\":\"DSA1394D42D3\",\"name\":\"Unicornssay\"}},"
                             + "\"site\":{\"id\":\"1345135123\",\"name\":\"Unicornssay\",\"domain\":\"unicornssay.com\",\"cat\":[\"IAB1\",\"IAB2\"],\"publisher\":{\"id\":\"pub12345\",\"name\":\"Publisher A\"}},"
