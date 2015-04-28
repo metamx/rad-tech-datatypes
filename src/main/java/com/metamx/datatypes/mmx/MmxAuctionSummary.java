@@ -19,6 +19,7 @@ package com.metamx.datatypes.mmx;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.metamx.datatypes.openrtb.App;
 import com.metamx.datatypes.openrtb.Device;
 import com.metamx.datatypes.openrtb.Ext;
@@ -37,6 +38,7 @@ public class MmxAuctionSummary
   private final String requestId;
   private final Integer auctionType;
   private final List<String> bcat;
+  private final List<String> badv;
   private final List<Imp> impressions;
   private final App app;
   private final Site site;
@@ -51,6 +53,7 @@ public class MmxAuctionSummary
       @JsonProperty("id") String requestId,
       @JsonProperty("at") Integer auctionType,
       @JsonProperty("bcat") List<String> bcat,
+      @JsonProperty("badv") List<String> badv,
       @JsonProperty("imp") List<Imp> impressions,
       @JsonProperty("app") App app,
       @JsonProperty("site") Site site,
@@ -65,6 +68,7 @@ public class MmxAuctionSummary
     this.requestId = requestId;
     this.auctionType = auctionType;
     this.bcat = bcat;
+    this.badv = badv;
     this.impressions = impressions;
     this.app = app;
     this.site = site;
@@ -97,6 +101,12 @@ public class MmxAuctionSummary
   public List<String> getBcat()
   {
     return bcat;
+  }
+
+  @JsonProperty
+  public List<String> getBadv()
+  {
+    return badv;
   }
 
   @JsonProperty("imp")
@@ -147,6 +157,7 @@ public class MmxAuctionSummary
     return ext;
   }
 
+
   public static Builder builder()
   {
     return new Builder();
@@ -158,6 +169,7 @@ public class MmxAuctionSummary
     private String requestId;
     private Integer auctionType;
     private List<String> bcat;
+    private List<String> badv;
     private List<Imp> impressions;
     private App app;
     private Site site;
@@ -190,6 +202,12 @@ public class MmxAuctionSummary
     public Builder bcat(final List<String> bcat)
     {
       this.bcat = bcat;
+      return this;
+    }
+
+    public Builder badv(final List<String> badv)
+    {
+      this.badv = badv;
       return this;
     }
 
@@ -251,6 +269,7 @@ public class MmxAuctionSummary
           requestId,
           auctionType,
           bcat,
+          badv,
           impressions,
           app,
           site,

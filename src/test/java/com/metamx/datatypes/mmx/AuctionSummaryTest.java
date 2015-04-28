@@ -47,7 +47,7 @@ public class AuctionSummaryTest
       .timestamp(new DateTime("2014-01-01T00:00:00.000Z"))
       .auctionType(2)
       .bcat(Arrays.asList("IAB26", "IAB25"))
-      .test(0)
+      .badv(Arrays.asList("unicornsay.com","unicornssay.com"))
       .requestId("AFEWSEBD5EB5FI32DASFCD452BB78DVE")
       .ext(
           Ext.builder().put("custFlag",3).put("custStr","Unicorns are the best!").build()
@@ -164,12 +164,12 @@ public class AuctionSummaryTest
                             + "\"id\":\"AFEWSEBD5EB5FI32DASFCD452BB78DVE\","
                             + "\"at\":2,"
                             + "\"bcat\":[\"IAB26\",\"IAB25\"],"
+                            + "\"badv\":[\"unicornsay.com\",\"unicornssay.com\"],"
                             + "\"imp\":[{\"banner\":{\"w\":50,\"h\":320,\"pos\":3,\"api\":[3,4]},\"displaymanager\":\"MyRenderer\",\"displaymanagerver\":\"v2\",\"tagid\":\"231\",\"bidfloor\":0.1,\"secure\":0}],"
                             + "\"app\":{\"id\":\"12312312\",\"name\":\"Unicornssay\",\"domain\":\"unicornssay.com\",\"cat\":[\"IAB1\"],\"bundle\":\"bundlename\",\"publisher\":{\"id\":\"DSA1394D42D3\",\"name\":\"Unicornssay\"}},"
                             + "\"site\":{\"id\":\"1345135123\",\"name\":\"Unicornssay\",\"domain\":\"unicornssay.com\",\"cat\":[\"IAB1\",\"IAB2\"],\"mobile\":0,\"publisher\":{\"id\":\"pub12345\",\"name\":\"Publisher A\"}},"
                             + "\"device\":{\"dnt\":0,\"ua\":\"Crazy UA String!\",\"ip\":\"192.168.1.8\",\"geo\":{\"lat\":37.790148,\"lon\":-122.434103,\"country\":\"USA\",\"region\":\"CA\",\"metro\":\"807\",\"city\":\"US-SFO\",\"zip\":\"94107\",\"type\":1},\"didsha1\":\"AA023\",\"didmd5\":\"AA003\",\"dpidsha1\":\"AA0\",\"dpidmd5\":\"A400FABFB5\",\"macsha1\":\"E50BB11\",\"macmd5\":\"BB11\",\"carrier\":\"Verizon\",\"language\":\"en\",\"make\":\"Apple\",\"model\":\"iPhone 3GS\",\"os\":\"iOS\",\"osv\":\"4.2.1\",\"js\":1,\"connectiontype\":2,\"devicetype\":1,\"flashver\":\"2.1\",\"ifa\":\"123\",\"ext\":{\"customField\":\"sam\"}},"
                             + "\"user\":{\"id\":\"456789876567897654678987656789\",\"yob\":1987,\"gender\":\"M\",\"data\":[{\"id\":\"123\",\"name\":\"bluesky\",\"segment\":[{\"id\":\"abc1\",\"name\":\"gender\",\"value\":\"male\"}]}]},"
-                            + "\"test\":0,"
                             + "\"bid_responses\":[{\"timestamp\":\"2014-03-05T04:58:23.200Z\",\"bidder_id\":\"1921\",\"bidder_name\":\"RealAds\",\"status\":1,\"total_duration\":43,\"cur\":\"USD\",\"seatbid\":[{\"seat\":\"512\",\"bid\":[{\"id\":\"1\",\"impid\":\"102\",\"status\":1,\"price\":5.43,\"clear_price\":1.1,\"adid\":\"314\",\"adomain\":[\"realtime4real.mmx.org\"],\"iurl\":\"http://adserver.com/pathtosampleimage\",\"cid\":\"229\",\"crid\":\"1234\",\"attr\":[1,2,3,4,5,6,7,12],\"dealid\":\"123ABC\"}]}]}],"
                             + "\"ext\":{\"custStr\":\"Unicorns are the best!\",\"custFlag\":3}"
                             + "}";
