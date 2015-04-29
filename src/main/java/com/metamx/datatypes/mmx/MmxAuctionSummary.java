@@ -145,7 +145,7 @@ public class MmxAuctionSummary
   {
     return radTechVersion;
   }
-  
+
   public static Builder builder()
   {
     return new Builder();
