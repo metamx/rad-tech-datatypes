@@ -44,6 +44,7 @@ public class MmxAuctionSummary
   private final User user;
   private final List<MmxBidResponse> responses;
   private final Ext ext;
+  private final String radTechVersion;
 
   public MmxAuctionSummary(
       @JsonProperty("timestamp") String timestamp,
@@ -70,6 +71,7 @@ public class MmxAuctionSummary
     this.user = user;
     this.responses = responses;
     this.ext = ext;
+    this.radTechVersion = MmxAuctionSummary.class.getPackage().getImplementationVersion();
   }
 
   @JsonProperty
@@ -136,6 +138,12 @@ public class MmxAuctionSummary
   public Ext getExt()
   {
     return ext;
+  }
+
+  @JsonProperty("rad_tech_version")
+  public String getRadTechVersion()
+  {
+    return radTechVersion;
   }
 
   public static Builder builder()
