@@ -36,6 +36,7 @@ public class MmxBid
   private final String iUrl;
   private final String cId;
   private final String crId;
+  private final String cat;
   private final List<Integer> attr;
   private final String dealId;
   private final Integer height;
@@ -53,6 +54,7 @@ public class MmxBid
       @JsonProperty("iurl") String iUrl,
       @JsonProperty("cid") String cId,
       @JsonProperty("crid") String crId,
+      @JsonProperty("cat") String cat,
       @JsonProperty("attr") List<Integer> attr,
       @JsonProperty("dealid") String dealId,
       @JsonProperty("h") Integer height,
@@ -70,6 +72,7 @@ public class MmxBid
     this.iUrl = iUrl;
     this.cId = cId;
     this.crId = crId;
+    this.cat = cat;
     this.attr = attr;
     this.dealId = dealId;
     this.height = height;
@@ -138,6 +141,12 @@ public class MmxBid
   }
 
   @JsonProperty
+  public String getCat()
+  {
+    return cat;
+  }
+
+  @JsonProperty
   public List<Integer> getAttr()
   {
     return attr;
@@ -184,6 +193,7 @@ public class MmxBid
     private String iUrl;
     private String cId;
     private String crId;
+    private String cat;
     private List<Integer> attr;
     private String dealId;
     private Integer height;
@@ -252,6 +262,12 @@ public class MmxBid
       return this;
     }
 
+    public Builder cat(final String cat)
+    {
+      this.cat = cat;
+      return this;
+    }
+
     public Builder attr(final List<Integer> attr)
     {
       this.attr = attr;
@@ -296,6 +312,7 @@ public class MmxBid
           iUrl,
           cId,
           crId,
+          cat,
           attr,
           dealId,
           height,
