@@ -53,8 +53,8 @@ public class MmxAuctionSummary
   public MmxAuctionSummary(
       @JsonProperty("timestamp") String timestamp,
       @JsonProperty("id") String requestId,
-      @JsonProperty("supply_source_id") String supplySourceId,
-      @JsonProperty("supply_source_name") String supplySourceName,
+      @JsonProperty("sourceid") String supplySourceId,
+      @JsonProperty("sourcename") String supplySourceName,
       @JsonProperty("at") Integer auctionType,
       @JsonProperty("bcat") List<String> bcat,
       @JsonProperty("badv") List<String> badv,
@@ -97,13 +97,13 @@ public class MmxAuctionSummary
     return requestId;
   }
 
-  @JsonProperty("supply_source_id")
+  @JsonProperty("sourceid")
   public String getSupplySourceId()
   {
     return supplySourceId;
   }
 
-  @JsonProperty("supply_source_name")
+  @JsonProperty("sourcename")
   public String getSupplySourceName()
   {
     return supplySourceName;
