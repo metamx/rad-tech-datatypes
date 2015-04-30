@@ -19,6 +19,7 @@ package com.metamx.datatypes.mmx;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.metamx.datatypes.openrtb.App;
 import com.metamx.datatypes.openrtb.Device;
 import com.metamx.datatypes.openrtb.Ext;
@@ -35,8 +36,11 @@ public class MmxAuctionSummary
 {
   private final String timestamp;
   private final String requestId;
+  private final String supplySourceId;
+  private final String supplySourceName;
   private final Integer auctionType;
   private final List<String> bcat;
+  private final List<String> badv;
   private final List<Imp> impressions;
   private final App app;
   private final Site site;
@@ -48,8 +52,11 @@ public class MmxAuctionSummary
   public MmxAuctionSummary(
       @JsonProperty("timestamp") String timestamp,
       @JsonProperty("id") String requestId,
+      @JsonProperty("sourceid") String supplySourceId,
+      @JsonProperty("sourcename") String supplySourceName,
       @JsonProperty("at") Integer auctionType,
       @JsonProperty("bcat") List<String> bcat,
+      @JsonProperty("badv") List<String> badv,
       @JsonProperty("imp") List<Imp> impressions,
       @JsonProperty("app") App app,
       @JsonProperty("site") Site site,
@@ -61,8 +68,11 @@ public class MmxAuctionSummary
   {
     this.timestamp = timestamp;
     this.requestId = requestId;
+    this.supplySourceId = supplySourceId;
+    this.supplySourceName = supplySourceName;
     this.auctionType = auctionType;
     this.bcat = bcat;
+    this.badv = badv;
     this.impressions = impressions;
     this.app = app;
     this.site = site;
@@ -84,6 +94,18 @@ public class MmxAuctionSummary
     return requestId;
   }
 
+  @JsonProperty("sourceid")
+  public String getSupplySourceId()
+  {
+    return supplySourceId;
+  }
+
+  @JsonProperty("sourcename")
+  public String getSupplySourceName()
+  {
+    return supplySourceName;
+  }
+
   @JsonProperty("at")
   public Integer getAuctionType()
   {
@@ -94,6 +116,12 @@ public class MmxAuctionSummary
   public List<String> getBcat()
   {
     return bcat;
+  }
+
+  @JsonProperty
+  public List<String> getBadv()
+  {
+    return badv;
   }
 
   @JsonProperty("imp")
@@ -138,6 +166,7 @@ public class MmxAuctionSummary
     return ext;
   }
 
+
   public static Builder builder()
   {
     return new Builder();
@@ -147,8 +176,11 @@ public class MmxAuctionSummary
   {
     private DateTime timestamp;
     private String requestId;
+    private String supplySourceId;
+    private String supplySourceName;
     private Integer auctionType;
     private List<String> bcat;
+    private List<String> badv;
     private List<Imp> impressions;
     private App app;
     private Site site;
@@ -171,6 +203,18 @@ public class MmxAuctionSummary
       return this;
     }
 
+    public Builder supplySourceId(final String supplySourceId)
+    {
+      this.supplySourceId = supplySourceId;
+      return this;
+    }
+
+    public Builder supplySourceName(final String supplySourceName)
+    {
+      this.supplySourceName = supplySourceName;
+      return this;
+    }
+
     public Builder auctionType(final Integer auctionType)
     {
       this.auctionType = auctionType;
@@ -180,6 +224,12 @@ public class MmxAuctionSummary
     public Builder bcat(final List<String> bcat)
     {
       this.bcat = bcat;
+      return this;
+    }
+
+    public Builder badv(final List<String> badv)
+    {
+      this.badv = badv;
       return this;
     }
 
@@ -233,8 +283,11 @@ public class MmxAuctionSummary
       return new MmxAuctionSummary(
           timestamp.withZone(DateTimeZone.UTC).toString(),
           requestId,
+          supplySourceId,
+          supplySourceName,
           auctionType,
           bcat,
+          badv,
           impressions,
           app,
           site,
