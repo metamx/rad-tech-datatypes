@@ -33,9 +33,11 @@ public class MmxBid
   private final Double clearPrice;
   private final String adId;
   private final List<String> adomain;
+  private final String bundle;
   private final String iUrl;
   private final String cId;
   private final String crId;
+  private final String cat;
   private final List<Integer> attr;
   private final String dealId;
   private final Integer height;
@@ -50,9 +52,11 @@ public class MmxBid
       @JsonProperty("clear_price") Double clearPrice,
       @JsonProperty("adid") String adId,
       @JsonProperty("adomain") List<String> adomain,
+      @JsonProperty("bundle") String bundle,
       @JsonProperty("iurl") String iUrl,
       @JsonProperty("cid") String cId,
       @JsonProperty("crid") String crId,
+      @JsonProperty("cat") String cat,
       @JsonProperty("attr") List<Integer> attr,
       @JsonProperty("dealid") String dealId,
       @JsonProperty("h") Integer height,
@@ -67,9 +71,11 @@ public class MmxBid
     this.clearPrice = clearPrice;
     this.adId = adId;
     this.adomain = adomain;
+    this.bundle = bundle;
     this.iUrl = iUrl;
     this.cId = cId;
     this.crId = crId;
+    this.cat = cat;
     this.attr = attr;
     this.dealId = dealId;
     this.height = height;
@@ -119,6 +125,12 @@ public class MmxBid
     return adomain;
   }
 
+  @JsonProperty
+  public String getBundle()
+  {
+    return bundle;
+  }
+
   @JsonProperty("iurl")
   public String getiUrl()
   {
@@ -135,6 +147,12 @@ public class MmxBid
   public String getCrId()
   {
     return crId;
+  }
+
+  @JsonProperty
+  public String getCat()
+  {
+    return cat;
   }
 
   @JsonProperty
@@ -181,9 +199,11 @@ public class MmxBid
     private Double clearPrice;
     private String adId;
     private List<String> adomain;
+    private String bundle;
     private String iUrl;
     private String cId;
     private String crId;
+    private String cat;
     private List<Integer> attr;
     private String dealId;
     private Integer height;
@@ -234,6 +254,12 @@ public class MmxBid
       return this;
     }
 
+    public Builder bundle(final String bundle)
+    {
+      this.bundle = bundle;
+      return this;
+    }
+
     public Builder iUrl(final String iUrl)
     {
       this.iUrl = iUrl;
@@ -249,6 +275,12 @@ public class MmxBid
     public Builder crId(final String crId)
     {
       this.crId = crId;
+      return this;
+    }
+
+    public Builder cat(final String cat)
+    {
+      this.cat = cat;
       return this;
     }
 
@@ -293,9 +325,11 @@ public class MmxBid
           clearPrice,
           adId,
           adomain,
+          bundle,
           iUrl,
           cId,
           crId,
+          cat,
           attr,
           dealId,
           height,

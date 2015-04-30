@@ -42,6 +42,7 @@ public class Imp
       @JsonProperty("id") String id,
       @JsonProperty("banner") Banner banner,
       @JsonProperty("video") Video video,
+      // TODO: Add Native here!
       @JsonProperty("displaymanager") String displayManager,
       @JsonProperty("displaymanagerver") String displayManagerVer,
       @JsonProperty("instl") Integer instl,

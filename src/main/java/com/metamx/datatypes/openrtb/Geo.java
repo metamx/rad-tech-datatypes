@@ -32,6 +32,7 @@ public class Geo
   private final String city;
   private final String zip;
   private final Integer type;
+  private final Integer utcoffset;
   private final Ext ext;
 
   public Geo(
@@ -44,6 +45,7 @@ public class Geo
       @JsonProperty("city") String city,
       @JsonProperty("zip") String zip,
       @JsonProperty("type") Integer type,
+      @JsonProperty("utcoffset") Integer utcoffset,
       @JsonProperty("ext") Ext ext
   )
   {
@@ -56,6 +58,7 @@ public class Geo
     this.city = city;
     this.zip = zip;
     this.type = type;
+    this.utcoffset = utcoffset;
     this.ext = ext;
   }
 
@@ -114,6 +117,12 @@ public class Geo
   }
 
   @JsonProperty
+  public Integer getUtcoffset()
+  {
+    return utcoffset;
+  }
+
+  @JsonProperty
   public Ext getExt()
   {
     return ext;
@@ -135,6 +144,7 @@ public class Geo
     private String city;
     private String zip;
     private Integer type;
+    private Integer utcoffset;
     private Ext ext;
 
     public Builder() {}
@@ -193,6 +203,12 @@ public class Geo
       return this;
     }
 
+    public Builder utcoffset(final Integer utcoffset)
+    {
+      this.utcoffset = utcoffset;
+      return this;
+    }
+
     public Builder ext(final Ext ext)
     {
       this.ext = ext;
@@ -211,6 +227,7 @@ public class Geo
           city,
           zip,
           type,
+          utcoffset,
           ext
       );
     }

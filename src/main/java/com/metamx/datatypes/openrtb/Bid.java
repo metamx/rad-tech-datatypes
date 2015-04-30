@@ -32,9 +32,11 @@ public class Bid
   private final String nurl;
   private final String adm;
   private final List<String> adomain;
+  private final String bundle;
   private final String iUrl;
   private final String cId;
   private final String crId;
+  private final String cat;
   private final List<Integer> attr;
   private final String dealId;
   private final Integer height;
@@ -49,9 +51,11 @@ public class Bid
       @JsonProperty("nurl") String nurl,
       @JsonProperty("adm") String adm,
       @JsonProperty("adomain") List<String> adomain,
+      @JsonProperty("bundle") String bundle,
       @JsonProperty("iurl") String iUrl,
       @JsonProperty("cid") String cId,
       @JsonProperty("crid") String crId,
+      @JsonProperty("cat") String cat,
       @JsonProperty("attr") List<Integer> attr,
       @JsonProperty("dealid") String dealId,
       @JsonProperty("h") Integer height,
@@ -66,9 +70,11 @@ public class Bid
     this.nurl = nurl;
     this.adm = adm;
     this.adomain = adomain;
+    this.bundle = bundle;
     this.iUrl = iUrl;
     this.cId = cId;
     this.crId = crId;
+    this.cat = cat;
     this.attr = attr;
     this.dealId = dealId;
     this.height = height;
@@ -118,6 +124,12 @@ public class Bid
     return adomain;
   }
 
+  @JsonProperty
+  public String getBundle()
+  {
+    return bundle;
+  }
+
   @JsonProperty("iurl")
   public String getiUrl()
   {
@@ -134,6 +146,12 @@ public class Bid
   public String getCrId()
   {
     return crId;
+  }
+
+  @JsonProperty
+  public String getCat()
+  {
+    return cat;
   }
 
   @JsonProperty
@@ -180,9 +198,11 @@ public class Bid
     private String nurl;
     private String adm;
     private List<String> adomain;
+    private String bundle;
     private String iUrl;
     private String cId;
     private String crId;
+    private String cat;
     private List<Integer> attr;
     private String dealId;
     private Integer height;
@@ -233,6 +253,12 @@ public class Bid
       return this;
     }
 
+    public Builder bundle(final String bundle)
+    {
+      this.bundle = bundle;
+      return this;
+    }
+
     public Builder iUrl(final String iUrl)
     {
       this.iUrl = iUrl;
@@ -248,6 +274,12 @@ public class Bid
     public Builder crId(final String crId)
     {
       this.crId = crId;
+      return this;
+    }
+
+    public Builder cat(final String cat)
+    {
+      this.cat = cat;
       return this;
     }
 
@@ -292,9 +324,11 @@ public class Bid
           nurl,
           adm,
           adomain,
+          bundle,
           iUrl,
           cId,
           crId,
+          cat,
           attr,
           dealId,
           height,

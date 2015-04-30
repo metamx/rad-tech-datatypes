@@ -28,16 +28,19 @@ public class MmxSeatBid
 {
   private final String seat;
   private final List<MmxBid> bid;
+  private final Integer group;
   private final Ext ext;
 
   public MmxSeatBid(
       @JsonProperty("seat") String seat,
       @JsonProperty("bid") List<MmxBid> bid,
+      @JsonProperty("group") Integer group,
       @JsonProperty("ext") Ext ext
   )
   {
     this.seat = seat;
     this.bid = bid;
+    this.group = group;
     this.ext = ext;
   }
 
@@ -51,6 +54,12 @@ public class MmxSeatBid
   public List<MmxBid> getBid()
   {
     return bid;
+  }
+
+  @JsonProperty
+  public Integer getGroup()
+  {
+    return group;
   }
 
   @JsonProperty
@@ -68,6 +77,7 @@ public class MmxSeatBid
   {
     private String seat;
     private List<MmxBid> bid;
+    private Integer group;
     private Ext ext;
 
     public Builder() {}
@@ -84,6 +94,12 @@ public class MmxSeatBid
       return this;
     }
 
+    public Builder group(final Integer group)
+    {
+      this.group = group;
+      return this;
+    }
+
     public Builder ext(final Ext ext)
     {
       this.ext = ext;
@@ -92,7 +108,7 @@ public class MmxSeatBid
 
     public MmxSeatBid build()
     {
-      return new MmxSeatBid(seat, bid, ext);
+      return new MmxSeatBid(seat, bid, group, ext);
     }
   }
 }
