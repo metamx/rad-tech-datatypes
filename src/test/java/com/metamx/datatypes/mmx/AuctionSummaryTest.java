@@ -250,4 +250,29 @@ public class AuctionSummaryTest
     Assert.assertEquals(bidJson, objectMapper.writeValueAsString(simpleBid));
   }
 
+  final Bid simpleBid = Bid.builder()
+                           .id("1")
+                           .impId("102")
+                           .dealId("123ABC")
+                           .cat("IAB1")
+                           .price(5.43)
+                           .adId("314")
+                           .attr(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 12))
+                           .crId("1234")
+                           .cat("IAB13")
+                           .cId("229")
+                           .adomain(Arrays.asList("realtime4real.mmx.org"))
+                           .bundle("com.foo.unicornsay.com")
+                           .iUrl("http://adserver.com/pathtosampleimage")
+                           .build();
+
+  final String bidJson = "{\"id\":\"1\",\"impid\":\"102\",\"price\":5.43,\"adid\":\"314\",\"adomain\":[\"realtime4real.mmx.org\"],\"bundle\":\"com.foo.unicornsay.com\",\"iurl\":\"http://adserver.com/pathtosampleimage\",\"cid\":\"229\",\"crid\":\"1234\",\"cat\":\"IAB13\",\"attr\":[1,2,3,4,5,6,7,12],\"dealid\":\"123ABC\"}";
+
+  @Test
+  public void testSimpleSerializationBid() throws Exception
+  {
+    final ObjectMapper objectMapper = new ObjectMapper();
+    Assert.assertEquals(bidJson, objectMapper.writeValueAsString(simpleBid));
+  }
+
 }
