@@ -36,6 +36,8 @@ public class MmxAuctionSummary
 {
   private final String timestamp;
   private final String requestId;
+  private final String supplySourceId;
+  private final String supplySourceName;
   private final Integer auctionType;
   private final List<String> bcat;
   private final List<String> badv;
@@ -50,6 +52,8 @@ public class MmxAuctionSummary
   public MmxAuctionSummary(
       @JsonProperty("timestamp") String timestamp,
       @JsonProperty("id") String requestId,
+      @JsonProperty("supply_source_id") String supplySourceId,
+      @JsonProperty("supply_source_name") String supplySourceName,
       @JsonProperty("at") Integer auctionType,
       @JsonProperty("bcat") List<String> bcat,
       @JsonProperty("badv") List<String> badv,
@@ -64,6 +68,8 @@ public class MmxAuctionSummary
   {
     this.timestamp = timestamp;
     this.requestId = requestId;
+    this.supplySourceId = supplySourceId;
+    this.supplySourceName = supplySourceName;
     this.auctionType = auctionType;
     this.bcat = bcat;
     this.badv = badv;
@@ -86,6 +92,18 @@ public class MmxAuctionSummary
   public String getRequestId()
   {
     return requestId;
+  }
+
+  @JsonProperty("supply_source_id")
+  public String getSupplySourceId()
+  {
+    return supplySourceId;
+  }
+
+  @JsonProperty("supply_source_name")
+  public String getSupplySourceName()
+  {
+    return supplySourceName;
   }
 
   @JsonProperty("at")
@@ -158,6 +176,8 @@ public class MmxAuctionSummary
   {
     private DateTime timestamp;
     private String requestId;
+    private String supplySourceId;
+    private String supplySourceName;
     private Integer auctionType;
     private List<String> bcat;
     private List<String> badv;
@@ -180,6 +200,18 @@ public class MmxAuctionSummary
     public Builder requestId(final String requestId)
     {
       this.requestId = requestId;
+      return this;
+    }
+
+    public Builder supplySourceId(final String supplySourceId)
+    {
+      this.supplySourceId = supplySourceId;
+      return this;
+    }
+
+    public Builder supplySourceName(final String supplySourceName)
+    {
+      this.supplySourceName = supplySourceName;
       return this;
     }
 
@@ -251,6 +283,8 @@ public class MmxAuctionSummary
       return new MmxAuctionSummary(
           timestamp.withZone(DateTimeZone.UTC).toString(),
           requestId,
+          supplySourceId,
+          supplySourceName,
           auctionType,
           bcat,
           badv,

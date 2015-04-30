@@ -46,6 +46,8 @@ public class AuctionSummaryTest
       .builder()
       .timestamp(new DateTime("2014-01-01T00:00:00.000Z"))
       .auctionType(2)
+      .supplySourceId("1")
+      .supplySourceName("RealTimeExchangeForRealz")
       .bcat(Arrays.asList("IAB26", "IAB25"))
       .badv(Arrays.asList("unicornsay.com","unicornssay.com"))
       .requestId("AFEWSEBD5EB5FI32DASFCD452BB78DVE")
@@ -162,6 +164,8 @@ public class AuctionSummaryTest
   final String simpleJson = "{"
                             + "\"timestamp\":\"2014-01-01T00:00:00.000Z\","
                             + "\"id\":\"AFEWSEBD5EB5FI32DASFCD452BB78DVE\","
+                            + "\"supply_source_id\":\"1\","
+                            + "\"supply_source_name\":\"RealTimeExchangeForRealz\","
                             + "\"at\":2,"
                             + "\"bcat\":[\"IAB26\",\"IAB25\"],"
                             + "\"badv\":[\"unicornsay.com\",\"unicornssay.com\"],"
