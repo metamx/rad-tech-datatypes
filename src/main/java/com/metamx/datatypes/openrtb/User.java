@@ -37,7 +37,7 @@ public class User
 
   public User(
       @JsonProperty("id") String id,
-      @JsonProperty("buyeruid") String buyeruid,
+      @JsonProperty("buyerid") String buyerid,
       @JsonProperty("yob") Integer yob,
       @JsonProperty("gender") String gender,
       @JsonProperty("keywords") String keywords,
@@ -48,7 +48,7 @@ public class User
   )
   {
     this.id = id;
-    this.buyeruid = buyeruid;
+    this.buyeruid = buyerid;
     this.yob = yob;
     this.gender = gender;
     this.keywords = keywords;

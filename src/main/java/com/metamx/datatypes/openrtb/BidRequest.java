@@ -34,6 +34,7 @@ public class BidRequest
   private final App app;
   private final Device device;
   private final User user;
+  private final Integer test;
   private final Integer auctionType;
   private final Integer tmax;
   private final List<String> wseat;
@@ -51,6 +52,7 @@ public class BidRequest
       @JsonProperty("app") App app,
       @JsonProperty("device") Device device,
       @JsonProperty("user") User user,
+      @JsonProperty("test") Integer test,
       @JsonProperty("at") Integer auctionType,
       @JsonProperty("tmax") Integer tmax,
       @JsonProperty("wseat") List<String> wseat,
@@ -68,6 +70,7 @@ public class BidRequest
     this.app = app;
     this.device = device;
     this.user = user;
+    this.test = test;
     this.auctionType = auctionType;
     this.tmax = tmax;
     this.wseat = wseat;
@@ -107,6 +110,12 @@ public class BidRequest
   public Device getDevice()
   {
     return device;
+  }
+
+  @JsonProperty
+  public Integer getTest()
+  {
+    return test;
   }
 
   @JsonProperty
@@ -182,6 +191,7 @@ public class BidRequest
     private App app;
     private Device device;
     private User user;
+    private Integer test;
     private Integer auctionType;
     private Integer tmax;
     private List<String> wseat;
@@ -227,6 +237,12 @@ public class BidRequest
     public Builder user(final User user)
     {
       this.user = user;
+      return this;
+    }
+
+    public Builder test(final Integer test)
+    {
+      this.test = test;
       return this;
     }
 
@@ -293,6 +309,7 @@ public class BidRequest
           app,
           device,
           user,
+          test,
           auctionType,
           tmax,
           wseat,

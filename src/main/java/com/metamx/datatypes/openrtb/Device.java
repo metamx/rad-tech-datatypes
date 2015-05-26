@@ -26,7 +26,9 @@ public class Device
   private final Integer dnt;
   private final String ua;
   private final String ip;
+  private final String ipv6;
   private final Geo geo;
+  private final Integer lmt;
   private final String didsha1;
   private final String didmd5;
   private final String dpidsha1;
@@ -39,6 +41,11 @@ public class Device
   private final String model;
   private final String os;
   private final String osVer;
+  private final String hwv;
+  private final Integer height;
+  private final Integer width;
+  private final Integer ppi;
+  private final Double pxratio;
   private final Integer jsSupport;
   private final Integer connectionType;
   private final Integer deviceType;
@@ -50,7 +57,9 @@ public class Device
       @JsonProperty("dnt") Integer dnt,
       @JsonProperty("ua") String ua,
       @JsonProperty("ip") String ip,
+      @JsonProperty("ipv6") String ipv6,
       @JsonProperty("geo") Geo geo,
+      @JsonProperty("lmt") Integer lmt,
       @JsonProperty("didsha1") String didsha1,
       @JsonProperty("didmd5") String didmd5,
       @JsonProperty("dpidsha1") String dpidsha1,
@@ -63,6 +72,11 @@ public class Device
       @JsonProperty("model") String model,
       @JsonProperty("os") String os,
       @JsonProperty("osv") String osVer,
+      @JsonProperty("hwv") String hwv,
+      @JsonProperty("h") Integer height,
+      @JsonProperty("w") Integer width,
+      @JsonProperty("ppi") Integer ppi,
+      @JsonProperty("pxratio") Double pxratio,
       @JsonProperty("js") Integer jsSupport,
       @JsonProperty("connectiontype") Integer connectionType,
       @JsonProperty("devicetype") Integer deviceType,
@@ -74,7 +88,9 @@ public class Device
     this.dnt = dnt;
     this.ua = ua;
     this.ip = ip;
+    this.ipv6 = ipv6;
     this.geo = geo;
+    this.lmt = lmt;
     this.didsha1 = didsha1;
     this.didmd5 = didmd5;
     this.dpidsha1 = dpidsha1;
@@ -87,6 +103,11 @@ public class Device
     this.model = model;
     this.os = os;
     this.osVer = osVer;
+    this.hwv = hwv;
+    this.height = height;
+    this.width = width;
+    this.ppi = ppi;
+    this.pxratio = pxratio;
     this.jsSupport = jsSupport;
     this.connectionType = connectionType;
     this.deviceType = deviceType;
@@ -191,6 +212,48 @@ public class Device
     return osVer;
   }
 
+  @JsonProperty
+  public String getIpv6()
+  {
+    return ipv6;
+  }
+
+  @JsonProperty
+  public Integer getLmt()
+  {
+    return lmt;
+  }
+
+  @JsonProperty
+  public String getHwv()
+  {
+    return hwv;
+  }
+
+  @JsonProperty("h")
+  public Integer getHeight()
+  {
+    return height;
+  }
+
+  @JsonProperty("w")
+  public Integer getWidth()
+  {
+    return width;
+  }
+
+  @JsonProperty
+  public Integer getPpi()
+  {
+    return ppi;
+  }
+
+  @JsonProperty
+  public Double getPxratio()
+  {
+    return pxratio;
+  }
+
   @JsonProperty("js")
   public Integer getJsSupport()
   {
@@ -237,7 +300,9 @@ public class Device
     private Integer dnt;
     private String ua;
     private String ip;
+    private String ipv6;
     private Geo geo;
+    private Integer lmt;
     private String didsha1;
     private String didmd5;
     private String dpidsha1;
@@ -250,6 +315,11 @@ public class Device
     private String model;
     private String os;
     private String osVer;
+    private String hwv;
+    private Integer height;
+    private Integer width;
+    private Integer ppi;
+    private Double pxratio;
     private Integer jsSupport;
     private Integer connectionType;
     private Integer deviceType;
@@ -277,9 +347,21 @@ public class Device
       return this;
     }
 
+    public Builder ipv6(final String ipv6)
+    {
+      this.ipv6 = ipv6;
+      return this;
+    }
+
     public Builder geo(final Geo geo)
     {
       this.geo = geo;
+      return this;
+    }
+
+    public Builder lmt(final Integer lmt)
+    {
+      this.lmt = lmt;
       return this;
     }
 
@@ -355,6 +437,36 @@ public class Device
       return this;
     }
 
+    public Builder hwv(final String hwv)
+    {
+      this.hwv = hwv;
+      return this;
+    }
+
+    public Builder height(final Integer height)
+    {
+      this.height = height;
+      return this;
+    }
+
+    public Builder width(final Integer width)
+    {
+      this.width = width;
+      return this;
+    }
+
+    public Builder ppi(final Integer ppi)
+    {
+      this.ppi = ppi;
+      return this;
+    }
+
+    public Builder pxratio(final Double pxratio)
+    {
+      this.pxratio = pxratio;
+      return this;
+    }
+
     public Builder jsSupport(final Integer jsSupport)
     {
       this.jsSupport = jsSupport;
@@ -397,7 +509,9 @@ public class Device
           dnt,
           ua,
           ip,
+          ipv6,
           geo,
+          lmt,
           didsha1,
           didmd5,
           dpidsha1,
@@ -410,6 +524,11 @@ public class Device
           model,
           os,
           osVer,
+          hwv,
+          height,
+          width,
+          ppi,
+          pxratio,
           jsSupport,
           connectionType,
           deviceType,

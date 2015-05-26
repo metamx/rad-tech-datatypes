@@ -32,6 +32,7 @@ public class Bid
   private final String nurl;
   private final String adm;
   private final List<String> adomain;
+  private final String bundle;
   private final String iUrl;
   private final String cId;
   private final String crId;
@@ -50,6 +51,7 @@ public class Bid
       @JsonProperty("nurl") String nurl,
       @JsonProperty("adm") String adm,
       @JsonProperty("adomain") List<String> adomain,
+      @JsonProperty("bundle") String bundle,
       @JsonProperty("iurl") String iUrl,
       @JsonProperty("cid") String cId,
       @JsonProperty("crid") String crId,
@@ -68,6 +70,7 @@ public class Bid
     this.nurl = nurl;
     this.adm = adm;
     this.adomain = adomain;
+    this.bundle = bundle;
     this.iUrl = iUrl;
     this.cId = cId;
     this.crId = crId;
@@ -119,6 +122,12 @@ public class Bid
   public List<String> getAdomain()
   {
     return adomain;
+  }
+
+  @JsonProperty
+  public String getBundle()
+  {
+    return bundle;
   }
 
   @JsonProperty("iurl")
@@ -189,6 +198,7 @@ public class Bid
     private String nurl;
     private String adm;
     private List<String> adomain;
+    private String bundle;
     private String iUrl;
     private String cId;
     private String crId;
@@ -240,6 +250,12 @@ public class Bid
     public Builder adomain(final List<String> adomain)
     {
       this.adomain = adomain;
+      return this;
+    }
+
+    public Builder bundle(final String bundle)
+    {
+      this.bundle = bundle;
       return this;
     }
 
@@ -308,6 +324,7 @@ public class Bid
           nurl,
           adm,
           adomain,
+          bundle,
           iUrl,
           cId,
           crId,

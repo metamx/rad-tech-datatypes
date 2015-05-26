@@ -35,6 +35,7 @@ public class Site
   private final Integer privacyPolicy;
   private final String ref;
   private final String search;
+  private final Integer mobile;
   private final Publisher publisher;
   private final Content content;
   private final String keywords;
@@ -51,6 +52,7 @@ public class Site
       @JsonProperty("privacypolicy") Integer privacyPolicy,
       @JsonProperty("ref") String ref,
       @JsonProperty("search") String search,
+      @JsonProperty("mobile") Integer mobile,
       @JsonProperty("publisher") Publisher publisher,
       @JsonProperty("content") Content content,
       @JsonProperty("keywords") String keywords,
@@ -67,6 +69,7 @@ public class Site
     this.privacyPolicy = privacyPolicy;
     this.ref = ref;
     this.search = search;
+    this.mobile = mobile;
     this.publisher = publisher;
     this.content = content;
     this.keywords = keywords;
@@ -134,6 +137,12 @@ public class Site
   }
 
   @JsonProperty
+  public Integer getMobile()
+  {
+    return mobile;
+  }
+
+  @JsonProperty
   public Publisher getPublisher()
   {
     return publisher;
@@ -174,6 +183,7 @@ public class Site
     private Integer privacyPolicy;
     private String ref;
     private String search;
+    private Integer mobile;
     private Publisher publisher;
     private Content content;
     private String keywords;
@@ -241,6 +251,12 @@ public class Site
       return this;
     }
 
+    public Builder mobile(final Integer mobile)
+    {
+      this.mobile = mobile;
+      return this;
+    }
+
     public Builder publisher(final Publisher publisher)
     {
       this.publisher = publisher;
@@ -278,6 +294,7 @@ public class Site
           privacyPolicy,
           ref,
           search,
+          mobile,
           publisher,
           content,
           keywords,

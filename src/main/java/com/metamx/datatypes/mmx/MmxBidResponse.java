@@ -35,6 +35,7 @@ public class MmxBidResponse
   private final String bidderName;
   private final String cur;
   private final List<MmxSeatBid> seatBid;
+  private final Integer nbr;
   private final Ext ext;
 
   public MmxBidResponse(
@@ -45,6 +46,7 @@ public class MmxBidResponse
       @JsonProperty("total_duration") Long totalDuration,
       @JsonProperty("cur") String cur,
       @JsonProperty("seatbid") List<MmxSeatBid> seatBid,
+      @JsonProperty("nbr") Integer nbr,
       @JsonProperty("ext") Ext ext
   )
   {
@@ -55,6 +57,7 @@ public class MmxBidResponse
     this.bidderName = bidderName;
     this.cur = cur;
     this.seatBid = seatBid;
+    this.nbr = nbr;
     this.ext = ext;
   }
 
@@ -101,6 +104,12 @@ public class MmxBidResponse
   }
 
   @JsonProperty
+  public Integer getNbr()
+  {
+    return nbr;
+  }
+
+  @JsonProperty
   public Ext getExt()
   {
     return ext;
@@ -120,6 +129,7 @@ public class MmxBidResponse
     private String bidderName;
     private String cur;
     private List<MmxSeatBid> seatBid;
+    private Integer nbr;
     private Ext ext;
 
     public Builder() {}
@@ -166,6 +176,12 @@ public class MmxBidResponse
       return this;
     }
 
+    public Builder nbr(final Integer nbr)
+    {
+      this.nbr = nbr;
+      return this;
+    }
+
     public Builder ext(final Ext ext)
     {
       this.ext = ext;
@@ -182,6 +198,7 @@ public class MmxBidResponse
           totalDuration,
           cur,
           seatBid,
+          nbr,
           ext
       );
     }

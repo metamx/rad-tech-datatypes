@@ -46,6 +46,7 @@ public class MmxAuctionSummary
   private final Site site;
   private final Device device;
   private final User user;
+  private final Integer test;
   private final List<MmxBidResponse> responses;
   private final Ext ext;
 
@@ -62,6 +63,7 @@ public class MmxAuctionSummary
       @JsonProperty("site") Site site,
       @JsonProperty("device") Device device,
       @JsonProperty("user") User user,
+      @JsonProperty("test") Integer test,
       @JsonProperty("bid_responses") List<MmxBidResponse> responses,
       @JsonProperty("ext") Ext ext
   )
@@ -78,6 +80,7 @@ public class MmxAuctionSummary
     this.site = site;
     this.device = device;
     this.user = user;
+    this.test = test;
     this.responses = responses;
     this.ext = ext;
   }
@@ -154,6 +157,12 @@ public class MmxAuctionSummary
     return user;
   }
 
+  @JsonProperty
+  public Integer getTest()
+  {
+    return test;
+  }
+
   @JsonProperty("bid_responses")
   public List<MmxBidResponse> getResponses()
   {
@@ -186,6 +195,7 @@ public class MmxAuctionSummary
     private Site site;
     private Device device;
     private User user;
+    private Integer test;
     private List<MmxBidResponse> responses;
     private Ext ext;
 
@@ -263,6 +273,12 @@ public class MmxAuctionSummary
       return this;
     }
 
+    public Builder test(final Integer test)
+    {
+      this.test = test;
+      return this;
+    }
+
     public Builder responses(final List<MmxBidResponse> responses)
     {
       this.responses = responses;
@@ -293,6 +309,7 @@ public class MmxAuctionSummary
           site,
           device,
           user,
+          test,
           responses,
           ext
       );
