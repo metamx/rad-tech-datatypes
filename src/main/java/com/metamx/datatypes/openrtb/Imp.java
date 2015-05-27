@@ -27,6 +27,7 @@ public class Imp
   private final String id;
   private final Banner banner;
   private final Video video;
+  private final Native nativeObj;
   private final String displayManager;
   private final String displayManagerVer;
   private final Integer instl;
@@ -42,7 +43,7 @@ public class Imp
       @JsonProperty("id") String id,
       @JsonProperty("banner") Banner banner,
       @JsonProperty("video") Video video,
-      // TODO: Add Native here!
+      @JsonProperty("native") Native nativeObj,
       @JsonProperty("displaymanager") String displayManager,
       @JsonProperty("displaymanagerver") String displayManagerVer,
       @JsonProperty("instl") Integer instl,
@@ -58,6 +59,7 @@ public class Imp
     this.id = id;
     this.banner = banner;
     this.video = video;
+    this.nativeObj = nativeObj;
     this.displayManager = displayManager;
     this.displayManagerVer = displayManagerVer;
     this.instl = instl;
@@ -86,6 +88,12 @@ public class Imp
   public Video getVideo()
   {
     return video;
+  }
+
+  @JsonProperty
+  public Native getNative()
+  {
+    return nativeObj;
   }
 
   @JsonProperty("displaymanager")
@@ -158,6 +166,7 @@ public class Imp
     private String id;
     private Banner banner;
     private Video video;
+    private Native nativeObj;
     private String displayManager;
     private String displayManagerVer;
     private Integer instl;
@@ -186,6 +195,12 @@ public class Imp
     public Builder video(final Video video)
     {
       this.video = video;
+      return this;
+    }
+
+    public Builder nativeObj(final Native nativeObj)
+    {
+      this.nativeObj = nativeObj;
       return this;
     }
 
@@ -254,6 +269,7 @@ public class Imp
           id,
           banner,
           video,
+          nativeObj,
           displayManager,
           displayManagerVer,
           instl,

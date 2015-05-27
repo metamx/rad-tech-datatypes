@@ -32,6 +32,8 @@ public class MmxBid
   private final Double price;
   private final Double clearPrice;
   private final String adId;
+  private final String nurl;
+  private final String adm;
   private final List<String> adomain;
   private final String bundle;
   private final String iUrl;
@@ -51,6 +53,8 @@ public class MmxBid
       @JsonProperty("price") Double price,
       @JsonProperty("clear_price") Double clearPrice,
       @JsonProperty("adid") String adId,
+      @JsonProperty("nurl") String nurl,
+      @JsonProperty("adm") String adm,
       @JsonProperty("adomain") List<String> adomain,
       @JsonProperty("bundle") String bundle,
       @JsonProperty("iurl") String iUrl,
@@ -70,6 +74,8 @@ public class MmxBid
     this.price = price;
     this.clearPrice = clearPrice;
     this.adId = adId;
+    this.nurl = nurl;
+    this.adm = adm;
     this.adomain = adomain;
     this.bundle = bundle;
     this.iUrl = iUrl;
@@ -117,6 +123,18 @@ public class MmxBid
   public String getAdId()
   {
     return adId;
+  }
+
+  @JsonProperty
+  public String getNurl()
+  {
+    return nurl;
+  }
+
+  @JsonProperty
+  public String getAdm()
+  {
+    return adm;
   }
 
   @JsonProperty
@@ -198,6 +216,8 @@ public class MmxBid
     private Double price;
     private Double clearPrice;
     private String adId;
+    private String nurl;
+    private String adm;
     private List<String> adomain;
     private String bundle;
     private String iUrl;
@@ -245,6 +265,18 @@ public class MmxBid
     public Builder adId(final String adId)
     {
       this.adId = adId;
+      return this;
+    }
+
+    public Builder nurl(final String nurl)
+    {
+      this.nurl = nurl;
+      return this;
+    }
+
+    public Builder adm(final String adm)
+    {
+      this.adm = adm;
       return this;
     }
 
@@ -324,6 +356,8 @@ public class MmxBid
           price,
           clearPrice,
           adId,
+          nurl,
+          adm,
           adomain,
           bundle,
           iUrl,
