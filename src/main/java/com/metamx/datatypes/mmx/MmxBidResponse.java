@@ -35,6 +35,7 @@ public class MmxBidResponse
   private final String bidderName;
   private final String cur;
   private final List<MmxSeatBid> seatBid;
+  private final String bidId;
   private final Integer nbr;
   private final Ext ext;
 
@@ -44,8 +45,9 @@ public class MmxBidResponse
       @JsonProperty("bidder_name") String bidderName,
       @JsonProperty("status") Integer status,
       @JsonProperty("total_duration") Long totalDuration,
-      @JsonProperty("cur") String cur,
       @JsonProperty("seatbid") List<MmxSeatBid> seatBid,
+      @JsonProperty("bidid") String bidId,
+      @JsonProperty("cur") String cur,
       @JsonProperty("nbr") Integer nbr,
       @JsonProperty("ext") Ext ext
   )
@@ -55,8 +57,9 @@ public class MmxBidResponse
     this.totalDuration = totalDuration;
     this.bidderId = bidderId;
     this.bidderName = bidderName;
-    this.cur = cur;
     this.seatBid = seatBid;
+    this.bidId = bidId;
+    this.cur = cur;
     this.nbr = nbr;
     this.ext = ext;
   }
@@ -91,16 +94,22 @@ public class MmxBidResponse
     return bidderName;
   }
 
-  @JsonProperty
-  public String getCur()
-  {
-    return cur;
-  }
-
   @JsonProperty("seatbid")
   public List<MmxSeatBid> getSeatBid()
   {
     return seatBid;
+  }
+
+  @JsonProperty("bidid")
+  public String getBidId()
+  {
+    return bidId;
+  }
+
+  @JsonProperty
+  public String getCur()
+  {
+    return cur;
   }
 
   @JsonProperty
@@ -127,8 +136,9 @@ public class MmxBidResponse
     private Long totalDuration;
     private String bidderId;
     private String bidderName;
-    private String cur;
     private List<MmxSeatBid> seatBid;
+    private String bidId;
+    private String cur;
     private Integer nbr;
     private Ext ext;
 
@@ -164,15 +174,21 @@ public class MmxBidResponse
       return this;
     }
 
-    public Builder cur(final String cur)
-    {
-      this.cur = cur;
-      return this;
-    }
-
     public Builder seatBid(final List<MmxSeatBid> seatBid)
     {
       this.seatBid = seatBid;
+      return this;
+    }
+
+    public Builder bidId(final String bidId)
+    {
+      this.bidId = bidId;
+      return this;
+    }
+
+    public Builder cur(final String cur)
+    {
+      this.cur = cur;
       return this;
     }
 
@@ -196,8 +212,9 @@ public class MmxBidResponse
           bidderName,
           status,
           totalDuration,
-          cur,
           seatBid,
+          bidId,
+          cur,
           nbr,
           ext
       );

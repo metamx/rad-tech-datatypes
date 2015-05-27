@@ -24,6 +24,7 @@ import com.metamx.datatypes.openrtb.App;
 import com.metamx.datatypes.openrtb.Device;
 import com.metamx.datatypes.openrtb.Ext;
 import com.metamx.datatypes.openrtb.Imp;
+import com.metamx.datatypes.openrtb.Regs;
 import com.metamx.datatypes.openrtb.Site;
 import com.metamx.datatypes.openrtb.User;
 import org.joda.time.DateTime;
@@ -48,6 +49,7 @@ public class MmxAuctionSummary
   private final User user;
   private final Integer test;
   private final List<MmxBidResponse> responses;
+  private final Regs regs;
   private final Ext ext;
 
   public MmxAuctionSummary(
@@ -65,6 +67,7 @@ public class MmxAuctionSummary
       @JsonProperty("user") User user,
       @JsonProperty("test") Integer test,
       @JsonProperty("bid_responses") List<MmxBidResponse> responses,
+      @JsonProperty("regs") Regs regs,
       @JsonProperty("ext") Ext ext
   )
   {
@@ -82,6 +85,7 @@ public class MmxAuctionSummary
     this.user = user;
     this.test = test;
     this.responses = responses;
+    this.regs = regs;
     this.ext = ext;
   }
 
@@ -170,6 +174,12 @@ public class MmxAuctionSummary
   }
 
   @JsonProperty
+  public Regs getRegs()
+  {
+    return regs;
+  }
+
+  @JsonProperty
   public Ext getExt()
   {
     return ext;
@@ -197,6 +207,7 @@ public class MmxAuctionSummary
     private User user;
     private Integer test;
     private List<MmxBidResponse> responses;
+    private Regs regs;
     private Ext ext;
 
     public Builder() {}
@@ -240,6 +251,12 @@ public class MmxAuctionSummary
     public Builder badv(final List<String> badv)
     {
       this.badv = badv;
+      return this;
+    }
+
+    public Builder regs(final Regs regs)
+    {
+      this.regs = regs;
       return this;
     }
 
@@ -311,6 +328,7 @@ public class MmxAuctionSummary
           user,
           test,
           responses,
+          regs,
           ext
       );
     }
