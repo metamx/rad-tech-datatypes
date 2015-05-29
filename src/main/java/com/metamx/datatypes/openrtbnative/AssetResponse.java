@@ -26,29 +26,32 @@ import com.metamx.datatypes.openrtb.Video;
 public class AssetResponse
 {
   private final Integer id;
-  private final Integer req;
+  private final Integer required;
   private final TitleResponse title;
   private final ImageResponse img;
   private final VideoResponse video;
   private final DataResponse data;
+  private final Link link;
   private final Ext ext;
 
   public AssetResponse(
       @JsonProperty("id") Integer id,
-      @JsonProperty("req") Integer req,
+      @JsonProperty("required") Integer required,
       @JsonProperty("title") TitleResponse title,
       @JsonProperty("img") ImageResponse img,
       @JsonProperty("video") VideoResponse video,
       @JsonProperty("data") DataResponse data,
+      @JsonProperty("link") Link link,
       @JsonProperty("ext") Ext ext
   )
   {
     this.id = id;
-    this.req = req;
+    this.required = required;
     this.title = title;
     this.img = img;
     this.video = video;
     this.data = data;
+    this.link = link;
     this.ext = ext;
   }
 
@@ -61,7 +64,7 @@ public class AssetResponse
   @JsonProperty
   public Integer getReq()
   {
-    return req;
+    return required;
   }
 
   @JsonProperty
@@ -89,6 +92,12 @@ public class AssetResponse
   }
 
   @JsonProperty
+  public Link getLink()
+  {
+    return link;
+  }
+
+  @JsonProperty
   public Ext getExt()
   {
     return ext;
@@ -102,11 +111,12 @@ public class AssetResponse
   public static class Builder
   {
     private Integer id;
-    private Integer req;
+    private Integer required;
     private TitleResponse title;
     private ImageResponse img;
     private VideoResponse video;
     private DataResponse data;
+    private Link link;
     private Ext ext;
 
     public Builder() {}
@@ -117,9 +127,9 @@ public class AssetResponse
       return this;
     }
 
-    public Builder req(final Integer req)
+    public Builder required(final Integer required)
     {
-      this.req = req;
+      this.required = required;
       return this;
     }
 
@@ -147,6 +157,12 @@ public class AssetResponse
       return this;
     }
 
+    public Builder link(final Link link)
+    {
+      this.link = link;
+      return this;
+    }
+
     public Builder ext(final Ext ext)
     {
       this.ext = ext;
@@ -157,11 +173,12 @@ public class AssetResponse
     {
       return new AssetResponse(
           id,
-          req,
+          required,
           title,
           img,
           video,
           data,
+          link,
           ext
       );
     }

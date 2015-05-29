@@ -27,19 +27,19 @@ import java.util.List;
 public class Link
 {
   private final String url;
-  private final List<String> clktrck;
+  private final List<String> clicktrackers;
   private final String fallback;
   private final Ext ext;
 
   public Link(
       @JsonProperty("url") String url,
-      @JsonProperty("clktrck[]") List<String> clktrck,
+      @JsonProperty("clicktrackers[]") List<String> clicktrackers,
       @JsonProperty("fallback") String fallback,
       @JsonProperty("ext") Ext ext
   )
   {
     this.url = url;
-    this.clktrck = clktrck;
+    this.clicktrackers = clicktrackers;
     this.fallback = fallback;
     this.ext = ext;
   }
@@ -51,9 +51,9 @@ public class Link
   }
 
   @JsonProperty("clktrck[]")
-  public List<String> getClktrck()
+  public List<String> getClicktrackers()
   {
-    return clktrck;
+    return clicktrackers;
   }
 
   @JsonProperty
@@ -76,7 +76,7 @@ public class Link
   public static class Builder
   {
     private String url;
-    private List<String> clktrck;
+    private List<String> clicktrackers;
     private String fallback;
     private Ext ext;
 
@@ -88,9 +88,9 @@ public class Link
       return this;
     }
 
-    public Builder clktrck(final List<String> clktrck)
+    public Builder clicktrackers(final List<String> clicktrackers)
     {
-      this.clktrck = clktrck;
+      this.clicktrackers = clicktrackers;
       return this;
     }
 
@@ -110,7 +110,7 @@ public class Link
     {
       return new Link(
           url,
-          clktrck,
+          clicktrackers,
           fallback,
           ext
       );
