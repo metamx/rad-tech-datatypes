@@ -20,7 +20,6 @@ package com.metamx.datatypes.openrtbnative;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.metamx.datatypes.openrtb.Ext;
-import com.metamx.datatypes.openrtb.Video;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class DataRequest
