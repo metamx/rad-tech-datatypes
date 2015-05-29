@@ -27,15 +27,15 @@ import java.util.List;
 public class VideoRequest
 {
   private final List<String> mimes;
-  private final int minduration;
-  private final int maxduration;
+  private final Integer minduration;
+  private final Integer maxduration;
   private final List<Integer> protocols;
   private final Ext ext;
 
   public VideoRequest(
       @JsonProperty("mimes") List<String> mimes,
-      @JsonProperty("minduration") int minduration,
-      @JsonProperty("maxduration") int maxduration,
+      @JsonProperty("minduration") Integer minduration,
+      @JsonProperty("maxduration") Integer maxduration,
       @JsonProperty("protocols") List<Integer> protocols,
       @JsonProperty("ext") Ext ext
   )
@@ -54,13 +54,13 @@ public class VideoRequest
   }
 
   @JsonProperty
-  public int getMinduration()
+  public Integer getMinduration()
   {
     return minduration;
   }
 
   @JsonProperty
-  public int getMaxduration()
+  public Integer getMaxduration()
   {
     return maxduration;
   }
@@ -85,8 +85,8 @@ public class VideoRequest
   public static class Builder
   {
     private List<String> mimes;
-    private int minduration;
-    private int maxduration;
+    private Integer minduration;
+    private Integer maxduration;
     private List<Integer> protocols;
     private Ext ext;
 
@@ -98,13 +98,13 @@ public class VideoRequest
       return this;
     }
 
-    public Builder minduration(final int minduration)
+    public Builder minduration(final Integer minduration)
     {
       this.minduration = minduration;
       return this;
     }
 
-    public Builder maxduration(final int maxduration)
+    public Builder maxduration(final Integer maxduration)
     {
       this.maxduration = maxduration;
       return this;

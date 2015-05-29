@@ -27,10 +27,10 @@ import java.util.List;
 public class NativeRequest
 {
   private final String ver;
-  private final int layout;
-  private final int adunit;
-  private final int plcmtcnt;
-  private final int seq;
+  private final Integer layout;
+  private final Integer adunit;
+  private final Integer plcmtcnt;
+  private final Integer seq;
   private final List<AssetRequest> assets;
   private final Ext ext;
 

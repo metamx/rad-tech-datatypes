@@ -26,20 +26,20 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ImageRequest
 {
-  private final int type;
-  private final int w;
-  private final int wmin;
-  private final int h;
-  private final int hmin;
+  private final Integer type;
+  private final Integer w;
+  private final Integer wmin;
+  private final Integer h;
+  private final Integer hmin;
   private final List<String> mimes;
   private final Ext ext;
 
   public ImageRequest(
-      @JsonProperty("type") int type,
-      @JsonProperty("w") int w,
-      @JsonProperty("wmin") int wmin,
-      @JsonProperty("h") int h,
-      @JsonProperty("hmin") int hmin,
+      @JsonProperty("type") Integer type,
+      @JsonProperty("w") Integer w,
+      @JsonProperty("wmin") Integer wmin,
+      @JsonProperty("h") Integer h,
+      @JsonProperty("hmin") Integer hmin,
       @JsonProperty("mimes") List<String> mimes,
       @JsonProperty("ext") Ext ext
   )
@@ -54,31 +54,31 @@ public class ImageRequest
   }
 
   @JsonProperty
-  public int getType()
+  public Integer getType()
   {
     return type;
   }
 
   @JsonProperty
-  public int getW()
+  public Integer getW()
   {
     return w;
   }
 
   @JsonProperty
-  public int getWmin()
+  public Integer getWmin()
   {
     return wmin;
   }
 
   @JsonProperty
-  public int getH()
+  public Integer getH()
   {
     return h;
   }
 
   @JsonProperty
-  public int getHmin()
+  public Integer getHmin()
   {
     return hmin;
   }
@@ -102,41 +102,41 @@ public class ImageRequest
 
   public static class Builder
   {
-    private int type;
-    private int w;
-    private int wmin;
-    private int h;
-    private int hmin;
+    private Integer type;
+    private Integer w;
+    private Integer wmin;
+    private Integer h;
+    private Integer hmin;
     private List<String> mimes;
     private Ext ext;
 
     public Builder() {}
 
-    public Builder type(final int type)
+    public Builder type(final Integer type)
     {
       this.type = type;
       return this;
     }
 
-    public Builder w(final int w)
+    public Builder w(final Integer w)
     {
       this.w = w;
       return this;
     }
 
-    public Builder wmin(final int wmin)
+    public Builder wmin(final Integer wmin)
     {
       this.wmin = wmin;
       return this;
     }
 
-    public Builder h(final int h)
+    public Builder h(final Integer h)
     {
       this.h = h;
       return this;
     }
 
-    public Builder hmin(final int hmin)
+    public Builder hmin(final Integer hmin)
     {
       this.hmin = hmin;
       return this;

@@ -25,8 +25,8 @@ import com.metamx.datatypes.openrtb.Video;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class AssetResponse
 {
-  private final int id;
-  private final int req;
+  private final Integer id;
+  private final Integer req;
   private final TitleResponse title;
   private final ImageResponse img;
   private final VideoResponse video;
@@ -34,8 +34,8 @@ public class AssetResponse
   private final Ext ext;
 
   public AssetResponse(
-      @JsonProperty("id") int id,
-      @JsonProperty("req") int req,
+      @JsonProperty("id") Integer id,
+      @JsonProperty("req") Integer req,
       @JsonProperty("title") TitleResponse title,
       @JsonProperty("img") ImageResponse img,
       @JsonProperty("video") VideoResponse video,
@@ -53,13 +53,13 @@ public class AssetResponse
   }
 
   @JsonProperty
-  public int getId()
+  public Integer getId()
   {
     return id;
   }
 
   @JsonProperty
-  public int getReq()
+  public Integer getReq()
   {
     return req;
   }
@@ -101,8 +101,8 @@ public class AssetResponse
 
   public static class Builder
   {
-    private int id;
-    private int req;
+    private Integer id;
+    private Integer req;
     private TitleResponse title;
     private ImageResponse img;
     private VideoResponse video;
@@ -111,13 +111,13 @@ public class AssetResponse
 
     public Builder() {}
 
-    public Builder id(final int id)
+    public Builder id(final Integer id)
     {
       this.id = id;
       return this;
     }
 
-    public Builder req(final int req)
+    public Builder req(final Integer req)
     {
       this.req = req;
       return this;

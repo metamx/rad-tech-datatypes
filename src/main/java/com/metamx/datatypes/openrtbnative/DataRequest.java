@@ -25,13 +25,13 @@ import com.metamx.datatypes.openrtb.Video;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class DataRequest
 {
-  private final int type;
-  private final int len;
+  private final Integer type;
+  private final Integer len;
   private final Ext ext;
 
   public DataRequest(
-      @JsonProperty("type") int type,
-      @JsonProperty("len") int len,
+      @JsonProperty("type") Integer type,
+      @JsonProperty("len") Integer len,
       @JsonProperty("ext") Ext ext
   )
   {
@@ -41,13 +41,13 @@ public class DataRequest
   }
 
   @JsonProperty
-  public int getType()
+  public Integer getType()
   {
     return type;
   }
 
   @JsonProperty
-  public int getLen()
+  public Integer getLen()
   {
     return len;
   }
@@ -65,19 +65,19 @@ public class DataRequest
 
   public static class Builder
   {
-    private int type;
-    private int len;
+    private Integer type;
+    private Integer len;
     private Ext ext;
 
     public Builder() {}
 
-    public Builder type(final int type)
+    public Builder type(final Integer type)
     {
       this.type = type;
       return this;
     }
 
-    public Builder len(final int len)
+    public Builder len(final Integer len)
     {
       this.len = len;
       return this;

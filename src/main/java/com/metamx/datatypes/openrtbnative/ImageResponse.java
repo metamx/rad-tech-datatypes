@@ -27,14 +27,14 @@ import java.util.List;
 public class ImageResponse
 {
   private final String url;
-  private final int w;
-  private final int h;
+  private final Integer w;
+  private final Integer h;
   private final Ext ext;
 
   public ImageResponse(
       @JsonProperty("url") String url,
-      @JsonProperty("w") int w,
-      @JsonProperty("h") int h,
+      @JsonProperty("w") Integer w,
+      @JsonProperty("h") Integer h,
       @JsonProperty("ext") Ext ext
   )
   {
@@ -48,13 +48,13 @@ public class ImageResponse
   public String getUrl() { return url; }
 
   @JsonProperty
-  public int getW()
+  public Integer getW()
   {
     return w;
   }
 
   @JsonProperty
-  public int getH()
+  public Integer getH()
   {
     return h;
   }
@@ -73,8 +73,8 @@ public class ImageResponse
   public static class Builder
   {
     private String url;
-    private int w;
-    private int h;
+    private Integer w;
+    private Integer h;
     private Ext ext;
 
     public Builder() {}
@@ -85,13 +85,13 @@ public class ImageResponse
       return this;
     }
 
-    public Builder w(final int w)
+    public Builder w(final Integer w)
     {
       this.w = w;
       return this;
     }
 
-    public Builder h(final int h)
+    public Builder h(final Integer h)
     {
       this.h = h;
       return this;
