@@ -24,60 +24,69 @@ import com.metamx.datatypes.openrtb.Ext;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class NativeResponse
+public class ImageRequest
 {
-  private final String ver;
-  private final List<AssetResponse> assets;
-  private final Link link;
-  private final List<String> imptrackers;
-  private final String jstracker;
+  private final int type;
+  private final int w;
+  private final int wmin;
+  private final int h;
+  private final int hmin;
+  private final List<String> mimes;
   private final Ext ext;
 
-  public NativeResponse(
-      @JsonProperty("ver") String ver,
-      @JsonProperty("assets") List<AssetResponse> assets,
-      @JsonProperty("link") Link link,
-      @JsonProperty("imptrackers") List<String> imptrackers,
-      @JsonProperty("jstracker") String jstracker,
+  public ImageRequest(
+      @JsonProperty("type") int type,
+      @JsonProperty("w") int w,
+      @JsonProperty("wmin") int wmin,
+      @JsonProperty("h") int h,
+      @JsonProperty("hmin") int hmin,
+      @JsonProperty("mimes") List<String> mimes,
       @JsonProperty("ext") Ext ext
   )
   {
-    this.ver = ver;
-    this.assets = assets;
-    this.link = link;
-    this.imptrackers = imptrackers;
-    this.jstracker = jstracker;
+    this.type = type;
+    this.w = w;
+    this.wmin = wmin;
+    this.h = h;
+    this.hmin = hmin;
+    this.mimes = mimes;
     this.ext = ext;
   }
 
   @JsonProperty
-  public String getVer()
+  public int getType()
   {
-    return ver;
+    return type;
   }
 
   @JsonProperty
-  public List<AssetResponse> getAssets()
+  public int getW()
   {
-    return assets;
+    return w;
   }
 
   @JsonProperty
-  public Link getLink ()
+  public int getWmin()
   {
-    return link;
+    return wmin;
   }
 
   @JsonProperty
-  public List<String> getImptrackers()
+  public int getH()
   {
-    return imptrackers;
+    return h;
   }
 
   @JsonProperty
-  public String getJstracker()
+  public int getHmin()
   {
-    return jstracker;
+    return hmin;
+  }
+
+  @JsonProperty
+  public List<String> getMimes()
+  {
+    return mimes;
   }
 
   @JsonProperty
@@ -93,42 +102,49 @@ public class NativeResponse
 
   public static class Builder
   {
-    private String ver;
-    private List<AssetResponse> assets;
-    private Link link;
-    private List<String> imptrackers;
-    private String jstracker;
+    private int type;
+    private int w;
+    private int wmin;
+    private int h;
+    private int hmin;
+    private List<String> mimes;
     private Ext ext;
 
     public Builder() {}
 
-    public Builder ver(final String ver)
+    public Builder type(final int type)
     {
-      this.ver = ver;
+      this.type = type;
       return this;
     }
 
-    public Builder assets(final List<AssetResponse> assets)
+    public Builder w(final int w)
     {
-      this.assets = assets;
+      this.w = w;
       return this;
     }
 
-    public Builder link(final Link link)
+    public Builder wmin(final int wmin)
     {
-      this.link = link;
+      this.wmin = wmin;
       return this;
     }
 
-    public Builder imptrackers (final List<String> imptrackers)
+    public Builder h(final int h)
     {
-      this.imptrackers = imptrackers;
+      this.h = h;
       return this;
     }
 
-    public Builder jstracker (final String jstracker)
+    public Builder hmin(final int hmin)
     {
-      this.jstracker = jstracker;
+      this.hmin = hmin;
+      return this;
+    }
+
+    public Builder mime(final List<String> mime)
+    {
+      this.mimes = mime;
       return this;
     }
 
@@ -138,17 +154,17 @@ public class NativeResponse
       return this;
     }
 
-    public NativeResponse build()
+    public ImageRequest build()
     {
-      return new NativeResponse(
-          ver,
-          assets,
-          link,
-          imptrackers,
-          jstracker,
+      return new ImageRequest(
+          type,
+          w,
+          wmin,
+          h,
+          hmin,
+          mimes,
           ext
-          );
+      );
     }
   }
-
 }

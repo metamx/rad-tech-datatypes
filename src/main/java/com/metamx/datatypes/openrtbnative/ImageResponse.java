@@ -24,40 +24,28 @@ import com.metamx.datatypes.openrtb.Ext;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ImgReq
+public class ImageResponse
 {
-  private final int type;
+  private final String url;
   private final int w;
-  private final int wmin;
   private final int h;
-  private final int hmin;
-  private final List<String> mime;
   private final Ext ext;
 
-  public ImgReq(
-      @JsonProperty("type") int type,
+  public ImageResponse(
+      @JsonProperty("url") String url,
       @JsonProperty("w") int w,
-      @JsonProperty("wmin") int wmin,
       @JsonProperty("h") int h,
-      @JsonProperty("hmin") int hmin,
-      @JsonProperty("mime") List<String> mime,
       @JsonProperty("ext") Ext ext
   )
   {
-    this.type = type;
+    this.url = url;
     this.w = w;
-    this.wmin = wmin;
     this.h = h;
-    this.hmin = hmin;
-    this.mime = mime;
     this.ext = ext;
   }
 
   @JsonProperty
-  public int getType()
-  {
-    return type;
-  }
+  public String getUrl() { return url; }
 
   @JsonProperty
   public int getW()
@@ -66,27 +54,9 @@ public class ImgReq
   }
 
   @JsonProperty
-  public int getWmin()
-  {
-    return wmin;
-  }
-
-  @JsonProperty
   public int getH()
   {
     return h;
-  }
-
-  @JsonProperty
-  public int getHmin()
-  {
-    return hmin;
-  }
-
-  @JsonProperty
-  public List<String> getMime()
-  {
-    return mime;
   }
 
   @JsonProperty
@@ -102,19 +72,16 @@ public class ImgReq
 
   public static class Builder
   {
-    private int type;
+    private String url;
     private int w;
-    private int wmin;
     private int h;
-    private int hmin;
-    private List<String> mime;
     private Ext ext;
 
     public Builder() {}
 
-    public Builder type(final int type)
+    public Builder url(final String url)
     {
-      this.type = type;
+      this.url = url;
       return this;
     }
 
@@ -124,27 +91,9 @@ public class ImgReq
       return this;
     }
 
-    public Builder wmin(final int wmin)
-    {
-      this.wmin = wmin;
-      return this;
-    }
-
     public Builder h(final int h)
     {
       this.h = h;
-      return this;
-    }
-
-    public Builder hmin(final int hmin)
-    {
-      this.hmin = hmin;
-      return this;
-    }
-
-    public Builder mime(final List<String> mime)
-    {
-      this.mime = mime;
       return this;
     }
 
@@ -154,15 +103,12 @@ public class ImgReq
       return this;
     }
 
-    public ImgReq build()
+    public ImageResponse build()
     {
-      return new ImgReq(
-          type,
+      return new ImageResponse(
+          url,
           w,
-          wmin,
           h,
-          hmin,
-          mime,
           ext
       );
     }

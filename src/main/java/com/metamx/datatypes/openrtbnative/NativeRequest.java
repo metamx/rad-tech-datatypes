@@ -31,7 +31,7 @@ public class NativeRequest
   private final int adunit;
   private final int plcmtcnt;
   private final int seq;
-  private final List<AssetObj> assets;
+  private final List<AssetRequest> assets;
   private final Ext ext;
 
   public NativeRequest(
@@ -40,7 +40,7 @@ public class NativeRequest
       @JsonProperty("adunit") Integer adunit,
       @JsonProperty("plcmtcnt") Integer plcmtcnt,
       @JsonProperty("seq") Integer seq,
-      @JsonProperty("assets") List<AssetObj> assets,
+      @JsonProperty("assets") List<AssetRequest> assets,
       @JsonProperty("ext") Ext ext
   )
   {
@@ -84,7 +84,7 @@ public class NativeRequest
   }
 
   @JsonProperty
-  public List<AssetObj> getAssets()
+  public List<AssetRequest> getAssets()
   {
     return assets;
   }
@@ -107,7 +107,7 @@ public class NativeRequest
     private Integer adunit;
     private Integer plcmtcnt;
     private Integer seq;
-    private List<AssetObj> assets;
+    private List<AssetRequest> assets;
     private Ext ext;
 
     public Builder() {}
@@ -142,7 +142,7 @@ public class NativeRequest
       return this;
     }
 
-    public Builder assets(final List<AssetObj> assets)
+    public Builder assets(final List<AssetRequest> assets)
     {
       this.assets = assets;
       return this;

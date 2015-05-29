@@ -23,32 +23,32 @@ import com.metamx.datatypes.openrtb.Ext;
 import com.metamx.datatypes.openrtb.Video;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class AssetObj
+public class AssetRequest
 {
   private final int id;
   private final int req;
-  private final TitleReq title;
-  private final ImgReq imgReq;
-  private final Video video;
-  private final DataReq dataReq;
+  private final TitleRequest title;
+  private final ImageRequest img;
+  private final VideoRequest video;
+  private final DataRequest data;
   private final Ext ext;
 
-  public AssetObj(
+  public AssetRequest(
       @JsonProperty("id") int id,
       @JsonProperty("req") int req,
-      @JsonProperty("title") TitleReq title,
-      @JsonProperty("img") ImgReq imgReq,
-      @JsonProperty("video") Video video,
-      @JsonProperty("data") DataReq dataReq,
+      @JsonProperty("title") TitleRequest title,
+      @JsonProperty("img") ImageRequest img,
+      @JsonProperty("video") VideoRequest video,
+      @JsonProperty("data") DataRequest data,
       @JsonProperty("ext") Ext ext
   )
   {
     this.id = id;
     this.req = req;
     this.title = title;
-    this.imgReq = imgReq;
+    this.img = img;
     this.video = video;
-    this.dataReq = dataReq;
+    this.data = data;
     this.ext = ext;
   }
 
@@ -65,27 +65,27 @@ public class AssetObj
   }
 
   @JsonProperty
-  public TitleReq getTitle()
+  public TitleRequest getTitle()
   {
     return title;
   }
 
   @JsonProperty
-  public ImgReq getImgReq()
+  public ImageRequest getImg()
   {
-    return imgReq;
+    return img;
   }
 
   @JsonProperty
-  public Video getVideo()
+  public VideoRequest getVideo()
   {
     return video;
   }
 
   @JsonProperty
-  public DataReq getDataReq()
+  public DataRequest getData()
   {
-    return dataReq;
+    return data;
   }
 
   @JsonProperty
@@ -103,10 +103,10 @@ public class AssetObj
   {
     private int id;
     private int req;
-    private TitleReq title;
-    private ImgReq imgReq;
-    private Video video;
-    private DataReq dataReq;
+    private TitleRequest title;
+    private ImageRequest img;
+    private VideoRequest video;
+    private DataRequest data;
     private Ext ext;
 
     public Builder() {}
@@ -123,27 +123,27 @@ public class AssetObj
       return this;
     }
 
-    public Builder title(final TitleReq title)
+    public Builder title(final TitleRequest title)
     {
       this.title = title;
       return this;
     }
 
-    public Builder img(final ImgReq imgReq)
+    public Builder img(final ImageRequest img)
     {
-      this.imgReq = imgReq;
+      this.img = img;
       return this;
     }
 
-    public Builder video(final Video video)
+    public Builder video(final VideoRequest video)
     {
       this.video = video;
       return this;
     }
 
-    public Builder data(final DataReq dataReq)
+    public Builder data(final DataRequest data)
     {
-      this.dataReq = dataReq;
+      this.data = data;
       return this;
     }
 
@@ -153,15 +153,15 @@ public class AssetObj
       return this;
     }
 
-    public AssetObj build()
+    public AssetRequest build()
     {
-      return new AssetObj(
+      return new AssetRequest(
           id,
           req,
           title,
-          imgReq,
+          img,
           video,
-          dataReq,
+          data,
           ext
       );
     }

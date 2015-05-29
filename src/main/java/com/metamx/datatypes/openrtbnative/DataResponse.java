@@ -21,24 +21,40 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.metamx.datatypes.openrtb.Ext;
 
-import java.util.List;
-
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class VideoObj
+public class DataResponse
 {
-  private final String vasttag;
+  private final String label;
+  private final String value;
+  private final Ext ext;
 
-  public VideoObj(
-      @JsonProperty("vasttag") String vasttag
+  public DataResponse(
+      @JsonProperty("label") String label,
+      @JsonProperty("value") String value,
+      @JsonProperty("ext") Ext ext
   )
   {
-    this.vasttag = vasttag;
+    this.label = label;
+    this.value = value;
+    this.ext = ext;
   }
 
   @JsonProperty
-  public String getVasttag()
+  public String getLabel()
   {
-    return vasttag;
+    return label;
+  }
+
+  @JsonProperty
+  public String getValue()
+  {
+    return value;
+  }
+
+  @JsonProperty
+  public Ext getExt()
+  {
+    return ext;
   }
 
   public static Builder builder()
@@ -48,21 +64,38 @@ public class VideoObj
 
   public static class Builder
   {
-    private String vasttag;
+    private String label;
+    private String value;
+    private Ext ext;
 
     public Builder() {}
 
-    public Builder vasttag(final String vasttag)
+    public Builder label(final String label)
     {
-      this.vasttag = vasttag;
+      this.label = label;
       return this;
     }
 
-    public VideoObj build()
+    public Builder value(final String value)
     {
-      return new VideoObj(
-          vasttag
+      this.value = value;
+      return this;
+    }
+
+    public Builder ext(final Ext ext)
+    {
+      this.ext = ext;
+      return this;
+    }
+
+    public DataResponse build()
+    {
+      return new DataResponse(
+          label,
+          value,
+          ext
       );
     }
   }
+
 }

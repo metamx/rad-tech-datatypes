@@ -22,12 +22,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.metamx.datatypes.openrtb.Ext;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class TitleObj
+public class TitleResponse
 {
   private final String text;
   private final Ext ext;
 
-  public TitleObj(
+  public TitleResponse(
       @JsonProperty("text") String text,
       @JsonProperty("ext") Ext ext
   )
@@ -72,9 +72,9 @@ public class TitleObj
       return this;
     }
 
-    public TitleObj build()
+    public TitleResponse build()
     {
-      return new TitleObj(text, ext);
+      return new TitleResponse(text, ext);
     }
   }
 }
