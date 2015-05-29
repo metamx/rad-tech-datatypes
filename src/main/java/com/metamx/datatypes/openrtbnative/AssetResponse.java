@@ -62,7 +62,7 @@ public class AssetResponse
   }
 
   @JsonProperty
-  public Integer getReq()
+  public Integer getRequired()
   {
     return required;
   }
@@ -86,7 +86,7 @@ public class AssetResponse
   }
 
   @JsonProperty
-  public DataResponse getDataResponse()
+  public DataResponse getData()
   {
     return data;
   }

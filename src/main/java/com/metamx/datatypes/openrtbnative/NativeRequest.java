@@ -66,7 +66,7 @@ public class NativeRequest
   }
 
   @JsonProperty
-  public Integer getAdUnit()
+  public Integer getAdunit()
   {
     return adunit;
   }

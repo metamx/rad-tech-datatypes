@@ -142,7 +142,7 @@ public class ImageRequest
       return this;
     }
 
-    public Builder mime(final List<String> mime)
+    public Builder mimes(final List<String> mime)
     {
       this.mimes = mime;
       return this;

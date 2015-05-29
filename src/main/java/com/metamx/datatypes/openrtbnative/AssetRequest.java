@@ -59,7 +59,7 @@ public class AssetRequest
   }
 
   @JsonProperty
-  public Integer getReq()
+  public Integer getRequired()
   {
     return required;
   }

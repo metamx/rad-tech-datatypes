@@ -24,11 +24,11 @@ import com.metamx.datatypes.openrtb.Ext;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class TitleRequest
 {
-  private final String len;
+  private final Integer len;
   private final Ext ext;
 
   public TitleRequest(
-      @JsonProperty("len") String len,
+      @JsonProperty("len") Integer len,
       @JsonProperty("ext") Ext ext
   )
   {
@@ -37,7 +37,7 @@ public class TitleRequest
   }
 
   @JsonProperty
-  public String getLen()
+  public Integer getLen()
   {
     return len;
   }
@@ -55,12 +55,12 @@ public class TitleRequest
 
   public static class Builder
   {
-    private String len;
+    private Integer len;
     private Ext ext;
 
     public Builder() {}
 
-    public Builder len(final String len)
+    public Builder len(final Integer len)
     {
       this.len = len;
       return this;

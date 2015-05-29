@@ -33,7 +33,7 @@ public class Link
 
   public Link(
       @JsonProperty("url") String url,
-      @JsonProperty("clicktrackers[]") List<String> clicktrackers,
+      @JsonProperty("clicktrackers") List<String> clicktrackers,
       @JsonProperty("fallback") String fallback,
       @JsonProperty("ext") Ext ext
   )
@@ -50,7 +50,7 @@ public class Link
     return url;
   }
 
-  @JsonProperty("clktrck[]")
+  @JsonProperty
   public List<String> getClicktrackers()
   {
     return clicktrackers;
