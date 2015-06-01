@@ -3,14 +3,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.metamx</groupId>
   <artifactId>rad-tech-datatypes</artifactId>
-  <version>0.0.6-SNAPSHOT</version>
+  <version>0.0.6</version>
   <name>rad-tech-datatypes</name>
   <description>Metamarkets data types</description>
   <scm>
     <connection>scm:git:ssh://git@github.com/metamx/rad-tech-datatypes.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/metamx/rad-tech-datatypes.git</developerConnection>
     <url>http://www.github.com/metamx/rad-tech-datatypes</url>
-    <tag>HEAD</tag>
+    <tag>rad-tech-datatypes-0.0.6</tag>
   </scm>
 
   <properties>
