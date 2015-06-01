@@ -110,7 +110,7 @@ public class NativeResponseTest
 
   final String nativeJson = "{\"ver\":\"1\",\"assets\":[{\"id\":35,\"required\":0,\"title\":{\"text\":\"threetwo\"},\"img\":{\"url\":\"4\",\"w\":200,\"h\":320},\"video\":{\"vasttag\":\"xml\"},\"data\":{\"label\":\"xz\",\"value\":\"49\"}}],\"link\":{\"url\":\"3\",\"clicktrackers\":[\"32\",\"34\"],\"fallback\":\"hah.com\"},\"imptrackers\":[\"abc\",\"1234\"],\"jstracker\":\"8\",\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
 
-  final String creativeJson = "{\"nativeobj\":{\"ver\":\"1\",\"assets\":[{\"id\":35,\"required\":0,\"title\":{\"text\":\"threetwo\"},\"img\":{\"url\":\"4\",\"w\":200,\"h\":320},\"video\":{\"vasttag\":\"xml\"},\"data\":{\"label\":\"xz\",\"value\":\"49\"}}],\"link\":{\"url\":\"3\",\"clicktrackers\":[\"32\",\"34\"],\"fallback\":\"hah.com\"},\"imptrackers\":[\"abc\",\"1234\"],\"jstracker\":\"8\",\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}}";
+  final String creativeJson = "{\"native\":{\"ver\":\"1\",\"assets\":[{\"id\":35,\"required\":0,\"title\":{\"text\":\"threetwo\"},\"img\":{\"url\":\"4\",\"w\":200,\"h\":320},\"video\":{\"vasttag\":\"xml\"},\"data\":{\"label\":\"xz\",\"value\":\"49\"}}],\"link\":{\"url\":\"3\",\"clicktrackers\":[\"32\",\"34\"],\"fallback\":\"hah.com\"},\"imptrackers\":[\"abc\",\"1234\"],\"jstracker\":\"8\",\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}}";
 
   @Test
   public void testSerializationByObject() throws Exception

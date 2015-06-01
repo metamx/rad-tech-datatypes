@@ -32,7 +32,7 @@ public class NativeAdCreative
     this.nativeobj = nativeobj;
   }
 
-  @JsonProperty
+  @JsonProperty("native")
   public NativeResponse getNativeobj()
   {
     return nativeobj;
