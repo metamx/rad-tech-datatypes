@@ -26,7 +26,7 @@ import java.util.List;
 public class User
 {
   private final String id;
-  private final String buyeruid;
+  private final String buyerid;
   private final Integer yob;
   private final String gender;
   private final String keywords;
@@ -48,7 +48,7 @@ public class User
   )
   {
     this.id = id;
-    this.buyeruid = buyerid;
+    this.buyerid = buyerid;
     this.yob = yob;
     this.gender = gender;
     this.keywords = keywords;
@@ -65,9 +65,9 @@ public class User
   }
 
   @JsonProperty
-  public String getBuyeruid()
+  public String getBuyerid()
   {
-    return buyeruid;
+    return buyerid;
   }
 
   @JsonProperty
@@ -120,7 +120,7 @@ public class User
   public static class Builder
   {
     private String id;
-    private String buyeruid;
+    private String buyerid;
     private Integer yob;
     private String gender;
     private String keywords;
@@ -137,9 +137,9 @@ public class User
       return this;
     }
 
-    public Builder buyeruid(final String buyeruid)
+    public Builder buyerid(final String buyerid)
     {
-      this.buyeruid = buyeruid;
+      this.buyerid = buyerid;
       return this;
     }
 
@@ -187,7 +187,7 @@ public class User
 
     public User build()
     {
-      return new User(id, buyeruid, yob, gender, keywords, customData, geo, data, ext);
+      return new User(id, buyerid, yob, gender, keywords, customData, geo, data, ext);
     }
   }
 }
