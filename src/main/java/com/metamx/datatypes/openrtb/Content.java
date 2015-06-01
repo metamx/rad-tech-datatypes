@@ -43,7 +43,7 @@ public class Content
   private final Integer len;
   private final Integer qagMediaRating;
   private final Integer embeddable;
-  private final String lanugage;
+  private final String language;
   private final Ext ext;
 
   public Content(
@@ -65,7 +65,7 @@ public class Content
       @JsonProperty("len") Integer len,
       @JsonProperty("qagmediarating") Integer qagMediaRating,
       @JsonProperty("embeddable") Integer embeddable,
-      @JsonProperty("language") String lanugage,
+      @JsonProperty("language") String language,
       @JsonProperty("ext") Ext ext
   )
   {
@@ -87,7 +87,7 @@ public class Content
     this.len = len;
     this.qagMediaRating = qagMediaRating;
     this.embeddable = embeddable;
-    this.lanugage = lanugage;
+    this.language = language;
     this.ext = ext;
   }
 
@@ -200,9 +200,9 @@ public class Content
   }
 
   @JsonProperty
-  public String getLanugage()
+  public String getLanguage()
   {
-    return lanugage;
+    return language;
   }
 
   @JsonProperty
@@ -236,7 +236,7 @@ public class Content
     private Integer len;
     private Integer qagMediaRating;
     private Integer embeddable;
-    private String lanugage;
+    private String language;
     private Ext ext;
 
     public Builder() {}
@@ -349,9 +349,9 @@ public class Content
       return this;
     }
 
-    public Builder lanugage(final String lanugage)
+    public Builder language(final String language)
     {
-      this.lanugage = lanugage;
+      this.language = language;
       return this;
     }
 
@@ -382,7 +382,7 @@ public class Content
           len,
           qagMediaRating,
           embeddable,
-          lanugage,
+          language,
           ext
       );
     }
