@@ -194,6 +194,6 @@ public class ExampleWriteNewLineJson
 ```
 Note: RDI users are encouraged to use GZIP compression.
 
-For more information on posting data to RDI, click [here](http://metamx.github.io/docs.metamarkets.com/docs/latest/rdiclient.html/).
+For more information on posting data to RDI, click [here](http://metamx.github.io/docs.metamarkets.com/docs/latest/rdiclient).
 
 
