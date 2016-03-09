@@ -82,6 +82,12 @@ public class Ext
       return this;
     }
 
+    public Builder put(String k, Object v)
+    {
+      this.values.put(k, v);
+      return this;
+    }
+
     public Ext build()
     {
       return new Ext(values);
