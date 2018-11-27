@@ -113,14 +113,14 @@ public class NativeRequestTest
     System.out.println(objectMapper.writeValueAsString(sampleNative));
   }
 
-  final String extJson = "{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}";
+  final String extJson = "{\"sample_str\":\"Test String\",\"sample_int\":1,\"sample_str_list\":[\"test1\",\"test2\"],\"sample_double\":2.0}";
   final String titleJson = "{\"len\":32}";
   final String imageJson = "{\"type\":4,\"w\":200,\"wmin\":180,\"h\":320,\"hmin\":300,\"mimes\":[\"image/jpg\",\"image/gif\"]}";
   final String videoJson = "{\"mimes\":[\"image/jpg\",\"image/gif\"],\"minduration\":4,\"maxduration\":40,\"protocols\":[4,5]}";
   final String dataJson = "{\"type\":3,\"len\":32}";
   final String assetsJson = "{\"id\":35,\"required\":0,\"title\":{\"len\":32},\"img\":{\"type\":4,\"w\":200,\"wmin\":180,\"h\":320,\"hmin\":300,\"mimes\":[\"image/jpg\",\"image/gif\"]},\"video\":{\"mimes\":[\"image/jpg\",\"image/gif\"],\"minduration\":4,\"maxduration\":40,\"protocols\":[4,5]},\"data\":{\"type\":3,\"len\":32}}";
 
-  final String nativeJson = "{\"ver\":\"1\",\"layout\":5,\"adunit\":2,\"plcmtcnt\":8,\"seq\":0,\"assets\":[{\"id\":35,\"required\":0,\"title\":{\"len\":32},\"img\":{\"type\":4,\"w\":200,\"wmin\":180,\"h\":320,\"hmin\":300,\"mimes\":[\"image/jpg\",\"image/gif\"]},\"video\":{\"mimes\":[\"image/jpg\",\"image/gif\"],\"minduration\":4,\"maxduration\":40,\"protocols\":[4,5]},\"data\":{\"type\":3,\"len\":32}}],\"ext\":{\"sample_double\":2.0,\"sample_int\":1,\"sample_str\":\"Test String\",\"sample_str_list\":[\"test1\",\"test2\"]}}";
+  final String nativeJson = "{\"ver\":\"1\",\"layout\":5,\"adunit\":2,\"plcmtcnt\":8,\"seq\":0,\"assets\":[{\"id\":35,\"required\":0,\"title\":{\"len\":32},\"img\":{\"type\":4,\"w\":200,\"wmin\":180,\"h\":320,\"hmin\":300,\"mimes\":[\"image/jpg\",\"image/gif\"]},\"video\":{\"mimes\":[\"image/jpg\",\"image/gif\"],\"minduration\":4,\"maxduration\":40,\"protocols\":[4,5]},\"data\":{\"type\":3,\"len\":32}}],\"ext\":{\"sample_str\":\"Test String\",\"sample_int\":1,\"sample_str_list\":[\"test1\",\"test2\"],\"sample_double\":2.0}}";
 
   @Test
   public void testSerializationByObject() throws Exception

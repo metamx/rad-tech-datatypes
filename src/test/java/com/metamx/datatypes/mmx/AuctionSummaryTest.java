@@ -191,7 +191,7 @@ public class AuctionSummaryTest
                             + "\"user\":{\"id\":\"456789876567897654678987656789\",\"yob\":1987,\"gender\":\"M\",\"data\":[{\"id\":\"123\",\"name\":\"bluesky\",\"segment\":[{\"id\":\"abc1\",\"name\":\"gender\",\"value\":\"male\"}]}]},"
                             + "\"test\":0,"
                             + "\"bid_responses\":[{\"timestamp\":\"2014-03-05T04:58:23.200Z\",\"bidder_id\":\"1921\",\"bidder_name\":\"RealAds\",\"status\":1,\"total_duration\":43,\"seatbid\":[{\"seat\":\"512\",\"bid\":[{\"id\":\"1\",\"impid\":\"102\",\"status\":1,\"price\":5.43,\"clear_price\":1.1,\"adid\":\"314\",\"nurl\":\"nurl-test\",\"adm\":\"adm-test\",\"adomain\":[\"realtime4real.mmx.org\"],\"iurl\":\"http://adserver.com/pathtosampleimage\",\"cid\":\"229\",\"crid\":\"1234\",\"cat\":\"IAB1\",\"attr\":[1,2,3,4,5,6,7,12],\"dealid\":\"123ABC\"}],\"group\":1}],\"cur\":\"USD\",\"nbr\":1}],"
-                            + "\"ext\":{\"custStr\":\"Unicorns are the best!\",\"custFlag\":3}"
+                            + "\"ext\":{\"custFlag\":3,\"custStr\":\"Unicorns are the best!\"}"
                             + "}";
 
   @Test
