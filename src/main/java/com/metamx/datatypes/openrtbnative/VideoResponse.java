@@ -23,7 +23,7 @@ import com.metamx.datatypes.openrtb.Ext;
 
 import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class VideoResponse
 {
   private final String vasttag;
