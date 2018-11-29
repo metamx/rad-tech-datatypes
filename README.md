@@ -25,6 +25,7 @@ Rad-Tech-Datatypes uses the Jackson data-binding API, so we start by creating a 
 ```java
 final ObjectMapper objectMapper = new ObjectMapper();
 ```
+*Note*: Avoid using `jackson` version `2.6.x`, as this version of the `annotations` API leads to unintend runtime errors. For more info, please refer to the [javadoc for the JsonInclude enum.](https://github.com/FasterXML/jackson-annotations/blob/master/src/main/java/com/fasterxml/jackson/annotation/JsonInclude.java#L154-L165) Versions `2.2.x` - `2.5.x` and `2.7.x` or greater run as expected. 
 
 ### Serialization
 The MMX Auction Summary record consists of an OpenRTB bid request with an array of nested OpenRTB bid responses. Additional parameters for denoting information about the auction and bids have been added where applicable.  
